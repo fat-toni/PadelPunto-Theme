@@ -88,8 +88,15 @@ if [ $AKTIV = 1 ]; then
   echo "→ Einschalten (vorherige Werte: $DATA/vorher.txt)"
   SCHEMAS=$(gsettings list-schemas 2>/dev/null || true)
   have() { grep -qx "$1" <<< "$SCHEMAS"; }
-  merke() { have "$1" && [ ! -f "$DATA/vorher.txt.fertig" ] && echo "$1 $2 $(gsettings get "$1" "$2")" >> "$DATA/vorher.txt" || true; }
-  setze() { have "$1" && { merke "$1" "$2"; gsettings set "$1" "$2" "$3"; } || true; }
+  merke() { if have "$1" && [ ! -f "$DATA/vorher.txt.fertig" ]; then echo "$1 $2 $(gsettings get "$1" "$2")" >> "$DATA/vorher.txt"; fi; }
+  setze() { if have "$1"; then gsettings set "$1" "$2" "$3" || true; fi; }
+  # Erst alles merken, dann setzen: Cinnamon gleicht org.gnome.* sofort an org.cinnamon.* an
+  merke org.cinnamon.desktop.interface gtk-theme;  merke org.cinnamon.desktop.interface icon-theme
+  merke org.cinnamon.desktop.wm.preferences theme; merke org.cinnamon.theme name
+  merke org.gnome.desktop.interface gtk-theme;     merke org.gnome.desktop.interface icon-theme
+  merke org.gnome.desktop.interface color-scheme
+  if [ $TERMINAL = 1 ]; then merke org.gnome.Terminal.ProfilesList default; fi
+  if [ $HG = 1 ]; then merke org.cinnamon.desktop.background picture-uri; fi
   setze org.cinnamon.desktop.interface gtk-theme PadelPunto-Dark
   setze org.cinnamon.desktop.interface icon-theme PadelPunto
   setze org.cinnamon.desktop.wm.preferences theme PadelPunto-Dark

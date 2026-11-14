@@ -14,13 +14,15 @@
   <img alt="GTK" src="https://img.shields.io/badge/GTK-3_%7C_4-d4f53c?style=flat-square&labelColor=0b0d0f">
   <img alt="Lizenz" src="https://img.shields.io/badge/Lizenz-GPL--3.0-d4f53c?style=flat-square&labelColor=0b0d0f">
   <img alt="Ohne sudo" src="https://img.shields.io/badge/Installation-ohne_sudo-d4f53c?style=flat-square&labelColor=0b0d0f">
+  <a href="https://github.com/PadelPunto"><img alt="Padel Punto auf GitHub" src="https://img.shields.io/badge/Projekt-Padel_Punto-d4f53c?style=flat-square&labelColor=0b0d0f&logo=github&logoColor=d4f53c"></a>
 </p>
 
 <p align="center">
   <a href="#-installieren">Installieren</a> ·
   <a href="#-so-sieht-es-aus">Bilder</a> ·
   <a href="#-farben">Farben</a> ·
-  <a href="#-entfernen">Entfernen</a>
+  <a href="#-entfernen">Entfernen</a> ·
+  <a href="#-padel-punto">Padel Punto</a>
 </p>
 
 <br>
@@ -154,6 +156,11 @@ Die einzelnen Schritte stecken in `tools/`:
 
 Benötigt Python 3, Pillow und die Mint-Pakete `mint-themes` und `mint-y-icons` (auf Linux Mint vorinstalliert).
 </details>
+
+## 🎾 Padel Punto
+
+Das Theme gehört zu **[Padel Punto](https://github.com/PadelPunto)**, dem Punktezähler für Padel.
+Am Handgelenk zählt die Uhr-App mit: **[watch-zepp](https://github.com/PadelPunto/watch-zepp)** für Amazfit-Uhren (Zepp OS).
 
 ## 📄 Lizenz
 

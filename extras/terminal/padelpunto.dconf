@@ -1,0 +1,16 @@
+[/]
+background-color='#0B0D0F'
+background-transparency-percent=8
+bold-color-same-as-fg=true
+cursor-background-color='#D4F53C'
+cursor-colors-set=true
+cursor-foreground-color='#0B0D0F'
+foreground-color='#E6E8EA'
+highlight-background-color='#D4F53C'
+highlight-colors-set=true
+highlight-foreground-color='#0B0D0F'
+palette=['#15181B', '#F44336', '#5EE08A', '#FFD60A', '#6AA8FF', '#C792EA', '#5ED6E0', '#C9CDD1', '#8B939B', '#FF6B5E', '#D4F53C', '#FFE14D', '#8DBBFF', '#DBA6F5', '#8AE8EF', '#F2F4F5']
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=true
+visible-name='Padel Punto'

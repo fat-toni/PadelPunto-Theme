@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=PadelPunto-Dark
+Comment=Padel Punto – dunkles Theme mit Lime-Akzent (basiert auf Mint-Y)
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=PadelPunto-Dark
+MetacityTheme=PadelPunto-Dark
+IconTheme=PadelPunto
+CursorTheme=Bibata-Modern-Classic
+ButtonLayout=:minimize,maximize,close

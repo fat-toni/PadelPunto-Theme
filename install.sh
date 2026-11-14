@@ -3,7 +3,7 @@
 #   ./install.sh               Theme + Icons kopieren
 #   ./install.sh --aktivieren  … und direkt einschalten (alte Einstellungen werden gemerkt)
 #   ./install.sh --alles       Theme, Icons, Dock, Terminal, Double Commander, Flatpak, Hintergründe – und einschalten
-# Einzeln: --dock  --terminal  --doublecmd  --flatpak  --hintergrund
+# Einzeln: --dock (Dock + obere Leiste)  --terminal  --doublecmd  --flatpak  --hintergrund
 set -euo pipefail
 cd "$(dirname "$(readlink -f "$0")")"
 
@@ -25,6 +25,11 @@ done
 THEMES="$HOME/.themes"; ICONS="$HOME/.local/share/icons"; DATA="$HOME/.local/share/padelpunto-theme"
 TERM_UUID="d4f53c0b-0d0f-4a1e-9b2c-5ad31e0b0d0f"
 mkdir -p "$THEMES" "$ICONS" "$DATA"
+SCHEMAS=$(gsettings list-schemas 2>/dev/null || true)
+have() { grep -qx "$1" <<< "$SCHEMAS"; }
+# Alte Werte nur beim ersten Installieren merken (uninstall.sh stellt sie wieder her)
+merke() { if have "$1" && [ ! -f "$DATA/vorher.txt.fertig" ]; then echo "$1 $2 $(gsettings get "$1" "$2")" >> "$DATA/vorher.txt"; fi; }
+setze() { if have "$1"; then gsettings set "$1" "$2" "$3" || true; fi; }
 
 echo "→ Theme nach $THEMES/PadelPunto-Dark"
 rm -rf "$THEMES/PadelPunto-Dark"; cp -a themes/PadelPunto-Dark "$THEMES/"
@@ -40,7 +45,14 @@ if [ $DOCK = 1 ]; then
   mkdir -p "$THEMES/PadelPunto-Dark/cinnamon/assets/padelpunto"
   cp extras/dock/assets/*.svg "$THEMES/PadelPunto-Dark/cinnamon/assets/padelpunto/"
   cat extras/dock/dock.css >> "$THEMES/PadelPunto-Dark/cinnamon/cinnamon.css"
-  echo "  Passt zu einer unteren Leiste mit 76 px Höhe (Leisteneinstellungen)."
+  if have org.cinnamon && pgrep -x cinnamon >/dev/null; then
+    echo "→ Leisten wie auf den Bildern: oben Menü · Uhr · Systembereich, unten das Dock"
+    for k in panels-enabled panels-height panels-autohide panel-zone-icon-sizes \
+             panel-zone-symbolic-icon-sizes next-applet-id enabled-applets; do merke org.cinnamon "$k"; done
+    python3 -I tools/leisten.py
+  else
+    echo "  Kein laufendes Cinnamon – Leisten bitte selbst einrichten (unten 76 px, Symbole Mitte 60 px)."
+  fi
 fi
 
 if [ $TERMINAL = 1 ]; then
@@ -86,10 +98,6 @@ fi
 
 if [ $AKTIV = 1 ]; then
   echo "→ Einschalten (vorherige Werte: $DATA/vorher.txt)"
-  SCHEMAS=$(gsettings list-schemas 2>/dev/null || true)
-  have() { grep -qx "$1" <<< "$SCHEMAS"; }
-  merke() { if have "$1" && [ ! -f "$DATA/vorher.txt.fertig" ]; then echo "$1 $2 $(gsettings get "$1" "$2")" >> "$DATA/vorher.txt"; fi; }
-  setze() { if have "$1"; then gsettings set "$1" "$2" "$3" || true; fi; }
   # Erst alles merken, dann setzen: Cinnamon gleicht org.gnome.* sofort an org.cinnamon.* an
   merke org.cinnamon.desktop.interface gtk-theme;  merke org.cinnamon.desktop.interface icon-theme
   merke org.cinnamon.desktop.wm.preferences theme; merke org.cinnamon.theme name
@@ -123,8 +131,8 @@ if [ $AKTIV = 1 ]; then
     case "$W" in 3440x*|2560x1080) BILD=PadelPunto-Court-Dunkel-3440x1440.png ;; 2560x1440) BILD=PadelPunto-Dunkel-2560x1440.png ;; esac
     setze org.cinnamon.desktop.background picture-uri "file://$HOME/.local/share/backgrounds/padelpunto/$BILD"
   fi
-  touch "$DATA/vorher.txt.fertig"
   # Cinnamon-Theme neu laden (kurz wegschalten und zurück)
   if have org.cinnamon.theme; then gsettings set org.cinnamon.theme name cinnamon; sleep 1; gsettings set org.cinnamon.theme name PadelPunto-Dark; fi
 fi
+[ -f "$DATA/vorher.txt" ] && touch "$DATA/vorher.txt.fertig"
 echo "Fertig. Rückgängig: ./uninstall.sh"

@@ -52,9 +52,10 @@
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h3>⚓ Dock <sub>optional</sub></h3>
-      Eine schwebende Pille hinter der unteren Fensterliste, kleine Punkte unter
-      laufenden Programmen und eine runde Hover-Kachel.
+      <h3>⚓ Dock & Leiste <sub>optional</sub></h3>
+      Unten ein Dock mit schwebender Pille, Punkten unter laufenden Programmen und
+      runder Hover-Kachel. Oben eine schmale Leiste: Menü, Arbeitsflächen, aktives
+      Programm, in der Mitte die Uhr mit Lime-Punkt.
     </td>
     <td width="50%" valign="top">
       <h3>⌨️ Terminal & Hintergründe <sub>optional</sub></h3>
@@ -83,7 +84,7 @@ Deine bisherigen Einstellungen merkt sich das Skript, `./uninstall.sh` holt sie 
 |---|---|
 | *(keine)* | Theme und Icons kopieren, nichts umschalten |
 | `--aktivieren` | Theme und Icons direkt einschalten, dunkler Modus für alle Apps, Padel-Punto-Farben auch für neuere GNOME-Apps (libadwaita) |
-| `--dock` | Dock-Pille, Punkte und Hover (passt zu einer unteren Leiste mit **76 px** Höhe) |
+| `--dock` | Leisten wie auf den Bildern: oben 32 px mit Menü, Arbeitsflächen, aktivem Programm und Uhr, unten das Dock (76 px) mit Pille, Punkten und Hover. Angeheftete Programme bleiben erhalten |
 | `--terminal` | Terminal-Profil „Padel Punto“ anlegen (mit `--aktivieren` als Standard) |
 | `--doublecmd` | Double Commander in Ink & Lime: Dateilisten, Cursor mit Lime-Rahmen, markierte Dateien in Lime (Double Commander vorher schließen) |
 | `--flatpak` | Flatpak-Apps dürfen Theme, Icons und libadwaita-Farben lesen (nur Lesezugriff, gilt für alle Flatpaks) |
@@ -151,6 +152,7 @@ Die einzelnen Schritte stecken in `tools/`:
 |---|---|
 | `padelpunto_theme.py` | baut das Theme aus Mint-Y-Dark: Mint-Grün → Lime, Grautöne → Ink, Text auf Lime wird Ink, Auswahl mit Lime-Balken, Mac-Punkte als Fensterknöpfe |
 | `doublecmd_farben.py` | Farben für Double Commander setzen (`--zurueck` stellt sie wieder her) |
+| `leisten.py` | richtet obere Leiste und Dock ein (von `install.sh --dock` aufgerufen), installiert die Applets „Aktives Programm“ und „Kalender (Padel Punto)“ |
 | `lime_ordner_minty.py` | Mint-Y-Ordner in Lime umfärben |
 | `readme_bilder.py` | die Bilder für diese Seite |
 

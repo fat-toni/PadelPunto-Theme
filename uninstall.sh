@@ -45,6 +45,8 @@ for line in open(p).read().splitlines():
 open(p, "w").write("\n".join(out) + "\n")
 PY
 fi
+rm -rf "$HOME/.local/share/cinnamon/applets/aktives-programm@padelpunto" \
+       "$HOME/.local/share/cinnamon/applets/kalender@padelpunto"
 rm -rf "$HOME/.themes/PadelPunto-Dark" "$HOME/.local/share/icons/PadelPunto" \
        "$HOME/.local/share/backgrounds/padelpunto" "$DATA"
 echo "Entfernt."

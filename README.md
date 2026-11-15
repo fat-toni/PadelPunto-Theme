@@ -72,6 +72,7 @@
 
 > **Requirements:** Linux Mint with Cinnamon (tested with Mint 22.3 and Cinnamon 6.6).
 > Everything goes into your home folder only, no password or `sudo` needed.
+> Only if the Papirus icons are missing, the script offers to install them for you.
 
 **1. Download.** With git:
 
@@ -106,7 +107,7 @@ Instead of `--all` you can pick and combine the parts:
 | `--activate` | switch theme and icons on, dark mode for all apps, Padel Punto colors for newer GNOME apps too |
 | `--dock` | set up the top panel (32 px) and dock (76 px) as in the screenshots |
 | `--terminal` | add the terminal profile “Padel Punto” (made the default with `--activate`) |
-| `--doublecmd` | ink & lime for Double Commander (close Double Commander first) |
+| `--doublecmd` | ink & lime for Double Commander (if it is open, the script asks you to close it) |
 | `--flatpak` | let Flatpak apps read the theme, icons and colors (read-only) |
 | `--wallpaper` | copy the wallpapers (with `--activate`, set one that fits your screen) |
 | `--all` | all of the above |
@@ -117,8 +118,8 @@ Example: only theme and terminal, active right away:
 ./install.sh --activate --terminal
 ```
 
-Important: every run copies the theme fresh. So always pass **all** the parts you want,
-otherwise the dock styling, for example, will be missing.
+You can add parts later at any time, e.g. `./install.sh --wallpaper`.
+Everything you installed before stays as it is.
 
 <sub>The German option names (`--alles`, `--aktivieren`, `--hintergrund`) work as well.</sub>
 </details>
@@ -219,10 +220,11 @@ and 60 px icon size in the center zone. Other sizes work too, the pill grows wit
 </details>
 
 <details>
-<summary><b>“Double Commander is still running”</b></summary>
+<summary><b>Double Commander kept its old colors</b></summary>
 <br>
-Double Commander writes its settings back when it quits. Close it first, then run
-<code>python3 tools/doublecmd_colors.py</code> (or <code>install.sh</code> again).
+Double Commander writes its settings back when it quits, so the colors can only be set
+while it is closed. The script asks you to close it. If you skipped that, close it and run
+<code>./install.sh --doublecmd</code>.
 </details>
 
 <details>

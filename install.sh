@@ -31,6 +31,10 @@ mkdir -p "$THEMES" "$ICONS" "$DATA"
 if [ -f "$DATA/vorher.txt" ] && [ ! -f "$DATA/previous.txt" ]; then mv "$DATA/vorher.txt" "$DATA/previous.txt"; fi
 rm -f "$DATA/vorher.txt.fertig" "$DATA/previous.txt.done"
 touch "$DATA/previous.txt"
+# Parts chosen in earlier runs: the theme is copied fresh every time, the dock styling is re-added
+if [ $DOCK = 1 ]; then grep -qx dock "$DATA/parts" 2>/dev/null || echo dock >> "$DATA/parts"; fi
+DOCK_STYLE=$DOCK; if grep -qx dock "$DATA/parts" 2>/dev/null; then DOCK_STYLE=1; fi
+ask() { [ -t 0 ] && read -r -p "$1" REPLY && [[ ! "$REPLY" =~ ^[nNsS] ]]; }
 
 SCHEMAS=$(gsettings list-schemas 2>/dev/null || true)
 have() { grep -qx "$1" <<< "$SCHEMAS"; }
@@ -44,14 +48,21 @@ echo "→ Icons to $ICONS/PadelPunto"
 rm -rf "$ICONS/PadelPunto"; cp -a icons/PadelPunto "$ICONS/"
 
 if [ ! -d /usr/share/icons/Papirus-Dark ]; then
-  echo "! Note: the icon theme 'PadelPunto' is based on Papirus-Dark:  sudo apt install papirus-icon-theme"
+  echo "! The icon theme 'PadelPunto' is based on Papirus-Dark, which is not installed."
+  if command -v apt-get >/dev/null && ask "  Install it now (asks for your password)? [Y/n] "; then
+    sudo apt-get install -y papirus-icon-theme || echo "  ! Failed – later:  sudo apt install papirus-icon-theme"
+  else
+    echo "  Later:  sudo apt install papirus-icon-theme"
+  fi
 fi
 
-if [ $DOCK = 1 ]; then
+if [ $DOCK_STYLE = 1 ]; then
   echo "→ Dock extras (pill, dots, hover)"
   mkdir -p "$THEMES/PadelPunto-Dark/cinnamon/assets/padelpunto"
   cp extras/dock/assets/*.svg "$THEMES/PadelPunto-Dark/cinnamon/assets/padelpunto/"
   cat extras/dock/dock.css >> "$THEMES/PadelPunto-Dark/cinnamon/cinnamon.css"
+fi
+if [ $DOCK = 1 ]; then
   if have org.cinnamon && pgrep -x cinnamon >/dev/null; then
     echo "→ Panels as in the screenshots: menu · clock · tray on top, dock at the bottom"
     for k in panels-enabled panels-height panels-autohide panel-zone-icon-sizes \
@@ -75,14 +86,15 @@ fi
 
 if [ $DC = 1 ]; then
   if [ -f "$HOME/.config/doublecmd/colors.json" ]; then
+    while pgrep -x doublecmd >/dev/null && ask "! Double Commander is running – close it and press Enter (s = skip) "; do sleep 1; done
     if pgrep -x doublecmd >/dev/null; then
-      echo "! Double Commander is running – close it, then run: python3 tools/doublecmd_colors.py"
+      echo "  Skipped. Later, with Double Commander closed:  ./install.sh --doublecmd"
     else
       echo "→ Double Commander colors (backup: ~/.config/doublecmd/*.before-padelpunto)"
       python3 -I tools/doublecmd_colors.py | sed 's/^/  /'
     fi
   else
-    echo "! Double Commander has never been started – open and close it once, then run: python3 tools/doublecmd_colors.py"
+    echo "! Double Commander has never been started – open and close it once, then:  ./install.sh --doublecmd"
   fi
 fi
 
@@ -145,7 +157,9 @@ if [ $ACTIVATE = 1 ]; then
     case "$RES" in 3440x*|2560x1080) PIC=PadelPunto-Court-Dark-3440x1440.png ;; 2560x1440) PIC=PadelPunto-Dark-2560x1440.png ;; esac
     set_key org.cinnamon.desktop.background picture-uri "file://$BACKGROUNDS/$PIC"
   fi
-  # Reload the Cinnamon theme (switch away briefly and back)
-  if have org.cinnamon.theme; then gsettings set org.cinnamon.theme name cinnamon; sleep 1; gsettings set org.cinnamon.theme name PadelPunto-Dark; fi
+fi
+# Reload the Cinnamon theme if it is in use (switch away briefly and back), so new files show right away
+if have org.cinnamon.theme && [ "$(gsettings get org.cinnamon.theme name)" = "'PadelPunto-Dark'" ]; then
+  gsettings set org.cinnamon.theme name cinnamon; sleep 1; gsettings set org.cinnamon.theme name PadelPunto-Dark
 fi
 echo "Done. To undo: ./uninstall.sh"

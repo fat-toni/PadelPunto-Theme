@@ -72,6 +72,7 @@
 
 > **Voraussetzung:** Linux Mint mit Cinnamon (getestet mit Mint 22.3 und Cinnamon 6.6).
 > Alles landet nur in deinem Benutzerordner, ein Passwort oder `sudo` ist nicht nötig.
+> Nur wenn die Papirus-Symbole fehlen, bietet das Skript an, sie für dich zu installieren.
 
 **1. Herunterladen.** Mit git:
 
@@ -106,7 +107,7 @@ Statt `--alles` lassen sich die Teile einzeln wählen und kombinieren:
 | `--aktivieren` | Theme und Icons einschalten, dunkler Modus für alle Apps, Padel-Punto-Farben auch für neuere GNOME-Apps |
 | `--dock` | obere Leiste (32 px) und Dock (76 px) wie auf den Bildern einrichten |
 | `--terminal` | Terminal-Profil „Padel Punto“ anlegen (mit `--aktivieren` als Standard) |
-| `--doublecmd` | Double Commander in Ink & Lime (Double Commander vorher schließen) |
+| `--doublecmd` | Double Commander in Ink & Lime (ist er offen, bittet das Skript dich, ihn zu schließen) |
 | `--flatpak` | Flatpak-Apps dürfen Theme, Icons und Farben lesen (nur Lesezugriff) |
 | `--hintergrund` | Hintergründe kopieren (mit `--aktivieren` passend zur Bildschirmgröße setzen) |
 | `--alles` | alles zusammen |
@@ -117,8 +118,8 @@ Beispiel: nur Theme und Terminal, sofort aktiv:
 ./install.sh --aktivieren --terminal
 ```
 
-Wichtig: Bei jedem Aufruf wird das Theme frisch kopiert. Gib deshalb immer **alle** Teile an,
-die du haben willst, sonst fehlt zum Beispiel das Dock-Styling.
+Teile kannst du jederzeit nachinstallieren, z. B. `./install.sh --hintergrund`.
+Alles, was du vorher installiert hast, bleibt erhalten.
 </details>
 
 <details>
@@ -215,10 +216,11 @@ und 60 px Symbolgröße in der Mitte. Andere Werte gehen auch, die Pille wächst
 </details>
 
 <details>
-<summary><b>„Double Commander is still running“</b></summary>
+<summary><b>Double Commander hat noch die alten Farben</b></summary>
 <br>
-Double Commander schreibt seine Einstellungen beim Beenden zurück. Erst schließen, dann
-<code>python3 tools/doublecmd_colors.py</code> ausführen (oder <code>install.sh</code> noch einmal).
+Double Commander schreibt seine Einstellungen beim Beenden zurück, die Farben lassen sich
+also nur setzen, solange er geschlossen ist. Das Skript bittet dich darum. Hast du das
+übersprungen: Double Commander schließen und <code>./install.sh --doublecmd</code> ausführen.
 </details>
 
 <details>

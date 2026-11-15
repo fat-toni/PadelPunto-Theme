@@ -2115,7 +2115,7 @@ On-Screen Keyboard (<= Cinnamon 6.4)
 /* ****** DEPRECATED */
 
 /* >>> padelpunto */
-/* Menüs: helle Fläche, Lime-Text, Lime-Balken links */
+/* Menus: light surface, lime text, lime bar on the left */
 .menu .popup-menu-item:hover, .menu .popup-menu-item:active,
 .popup-menu .popup-menu-item:hover, .popup-menu .popup-menu-item:active,
 .popup-combo-menu .popup-menu-item:hover, .popup-combo-menu .popup-menu-item:active {
@@ -2123,7 +2123,7 @@ On-Screen Keyboard (<= Cinnamon 6.4)
 }
 .menu .popup-sub-menu, .popup-menu .popup-sub-menu { background-color: #0f1214; }
 
-/* Startmenü */
+/* Start menu */
 .appmenu-sidebar { background-color: #0f1214; }
 .appmenu-sidebar-button:hover { background-color: rgba(255, 255, 255, 0.07); color: #d4f53c; }
 .appmenu-application-button-selected, .appmenu-category-button-selected {
@@ -2133,12 +2133,12 @@ On-Screen Keyboard (<= Cinnamon 6.4)
 .appmenu-application-button-selected .appmenu-application-button-description { color: #b8c0c7; }
 #appmenu-search-entry:focus { border-color: #d4f53c; }
 
-/* Kalender: heute in vollem Lime (Mint nimmt den Akzent mit 40 %, Lime wird darauf olivgrün) */
+/* Calendar: today in full lime (Mint uses the accent at 40 %, which turns lime olive) */
 .calendar-today, .calendar-today:selected { color: #0b0d0f; background-color: #d4f53c; font-weight: bold; border-radius: 999px; }
 
-/* Tooltips (Dock, Leiste, Applets) dunkel wie die Menüs statt Lime mit weißer Schrift */
+/* Tooltips (dock, panel, applets) dark like the menus instead of lime with white text */
 #Tooltip { background-color: rgba(35, 40, 45, 0.97); color: #e6e8ea; border: 1px solid rgba(255, 255, 255, 0.1); }
 
-/* Obere Leiste halbtransparent mit feiner Kante */
+/* Top panel semi-transparent with a fine edge */
 .panel-top { background-color: rgba(11, 13, 15, 0.55); border-bottom: 1px solid rgba(255, 255, 255, 0.11); box-shadow: none; }
 /* <<< padelpunto */

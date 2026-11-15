@@ -1,6 +1,6 @@
 [Icon Theme]
 Name=PadelPunto
-Comment=Padel Punto – Papirus-Dark mit Lime-Ordnern
+Comment=Padel Punto – Papirus-Dark with lime folders
 Inherits=Papirus-Dark,breeze-dark,hicolor
 Example=folder
 Directories=128x128/places,128x128/apps,16x16/places,16x16@2x/places,22x22/places,22x22/apps,22x22@2x/places,22x22@2x/apps,24x24/places,24x24/apps,24x24@2x/places,24x24@2x/apps,32x32/places,32x32/apps,32x32@2x/places,32x32@2x/apps,48x48/places,48x48/apps,48x48@2x/places,48x48@2x/apps,64x64/places,64x64/apps,64x64@2x/places,64x64@2x/apps,96x96/places,96x96/apps

@@ -1,0 +1,6 @@
+{
+    "uuid": "active-app@padelpunto",
+    "name": "Active app (Padel Punto)",
+    "description": "Shows the name of the active app in the panel",
+    "max-instances": 1
+}

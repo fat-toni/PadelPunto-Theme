@@ -3202,18 +3202,18 @@ menubutton arrow {
 @define-color wm_icon_active_bg #FFFFFF;
 
 /* >>> padelpunto */
-/* Seitenleisten etwas dunkler als das Fenster */
+/* Sidebars slightly darker than the window */
 .sidebar, .sidebar .view, .sidebar viewport, placessidebar.sidebar, placessidebar.sidebar list,
 stacksidebar.sidebar list, .nemo-window .sidebar, .nemo-window .sidebar .view { background-color: #0f1214; }
 
-/* Auswahl in Listen und Dateiansichten: helle Fläche + Lime-Text statt voller Akzentfläche */
+/* Selection in lists and file views: light surface + lime text instead of a full accent fill */
 .nemo-window .view selection, .nemo-window .view:selected,
 .nautilus-window notebook .view:not(treeview) selection, .nautilus-window notebook .view:not(treeview):selected,
 flowbox flowboxchild:selected {
   color: #d4f53c; background-color: rgba(255, 255, 255, 0.07);
 }
-/* Nemo-Seitenleiste (GtkTreeView, Hintergrund pro Spalte): Bild = 200 % der Zellbreite, rechtsbündig,
-   Lime auf den ersten 7 px -> sichtbar nur in der schmalen ersten Spalte = Balken links. */
+/* Nemo sidebar (GtkTreeView, background per column): image = 200 % of the cell width, right-aligned,
+   lime on the first 7 px -> only visible in the narrow first column = bar on the left. */
 .nemo-window .sidebar .view:selected, .nemo-window .sidebar .view:selected:focus {
   color: #d4f53c; background-color: rgba(255, 255, 255, 0.07);
   background-image: linear-gradient(to right, #d4f53c 7px, transparent 7px);
@@ -3226,11 +3226,11 @@ placessidebar.sidebar row:selected, stacksidebar.sidebar row:selected, list.navi
 placessidebar.sidebar row:selected label, placessidebar.sidebar row:selected image,
 stacksidebar.sidebar row:selected label { color: #d4f53c; }
 
-/* Tooltips dunkel wie die Menüs (Mint-Y: Akzentfläche mit weißer Schrift, auf Lime unlesbar) */
+/* Tooltips dark like the menus (Mint-Y: accent fill with white text, unreadable on lime) */
 tooltip.background { background-color: rgba(35, 40, 45, 0.97); border: 1px solid rgba(255, 255, 255, 0.1); }
 tooltip, tooltip * { color: #e6e8ea; }
 
-/* Fensterknöpfe: Mac-Punkte Gelb / Grün / Rot, Symbol erst beim Überfahren */
+/* Window buttons: Mac-style dots yellow / green / red, symbol only on hover */
 headerbar button.titlebutton.minimize, .titlebar button.titlebutton.minimize { min-width: 16px; min-height: 16px; padding: 0; margin: 0 4px; border: none; border-radius: 50%; box-shadow: none; outline: none; background-image: none; background-color: #fdbe04; color: transparent; }
 headerbar button.titlebutton.minimize:hover, .titlebar button.titlebutton.minimize:hover, headerbar button.titlebutton.minimize:hover:backdrop, .titlebar button.titlebutton.minimize:hover:backdrop { background-image: none; background-color: #fdbe04; color: #0b0d0f; }
 headerbar button.titlebutton.minimize:active, .titlebar button.titlebutton.minimize:active { background-image: none; background-color: #fdbe04; color: #0b0d0f; box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.15); }

@@ -1,3 +1,4 @@
 *.vor-*
+*.before-*
 *.orig
 __pycache__/

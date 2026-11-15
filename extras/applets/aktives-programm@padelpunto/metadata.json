@@ -1,6 +1,0 @@
-{
-    "uuid": "aktives-programm@padelpunto",
-    "name": "Aktives Programm (Padel Punto)",
-    "description": "Zeigt den Namen des aktiven Programms in der Leiste an",
-    "max-instances": 1
-}

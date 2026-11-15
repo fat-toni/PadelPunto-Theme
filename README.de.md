@@ -63,7 +63,7 @@
 </table>
 
 <p align="center">
-  <img src="docs/leisten.png" alt="Obere Leiste mit Uhr und Dock mit Pille" width="100%">
+  <img src="docs/panels.png" alt="Obere Leiste mit Uhr und Dock mit Pille" width="100%">
 </p>
 
 ## 🚀 Installieren
@@ -141,7 +141,7 @@ Nach der Installation findest du alles an den gewohnten Stellen in Linux Mint:
 | **Theme & Icons** | Systemeinstellungen → **Themen**. Fensterrahmen, Steuerelemente und Desktop: `PadelPunto-Dark`, Symbole: `PadelPunto` |
 | **Hintergründe** | Systemeinstellungen → **Hintergründe** → Ordner `padelpunto` in der linken Liste |
 | **Leiste & Dock** | Rechtsklick auf die Leiste → **Leisteneinstellungen** (Höhe, Symbolgröße, automatisch ausblenden) |
-| **Uhr & aktives Programm** | Systemeinstellungen → **Applets**: „Kalender (Padel Punto)“ und „Aktives Programm (Padel Punto)“ |
+| **Uhr & aktives Programm** | Systemeinstellungen → **Applets**: „Calendar (Padel Punto)“ und „Active app (Padel Punto)“ |
 | **Terminal-Profil** | Terminal → Menü → **Einstellungen** → Profil „Padel Punto“ |
 | **Double Commander** | wird direkt umgefärbt, zu finden unter Konfiguration → Optionen → Farben |
 
@@ -153,25 +153,25 @@ Nach der Installation findest du alles an den gewohnten Stellen in Linux Mint:
 |---|---|
 | Theme | `~/.themes/PadelPunto-Dark` |
 | Icons | `~/.local/share/icons/PadelPunto` |
-| Applets | `~/.local/share/cinnamon/applets/` (`kalender@padelpunto`, `aktives-programm@padelpunto`) |
+| Applets | `~/.local/share/cinnamon/applets/` (`calendar@padelpunto`, `active-app@padelpunto`) |
 | Hintergründe | `~/.local/share/backgrounds/padelpunto` |
 | Farben für neuere GNOME-Apps | `~/.config/gtk-4.0/gtk.css` (nur mit `--flatpak` oder ohne Mint-libadwaita) |
-| Gemerkte alte Einstellungen | `~/.local/share/padelpunto-theme/vorher.txt` |
+| Gemerkte alte Einstellungen | `~/.local/share/padelpunto-theme/previous.txt` |
 </details>
 
 ## 📸 Bilder
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/startmenue.png" alt="Startmenü"></td>
-    <td width="50%"><img src="docs/kalender.png" alt="Kalender"></td>
+    <td width="50%"><img src="docs/start-menu.png" alt="Startmenü"></td>
+    <td width="50%"><img src="docs/calendar.png" alt="Kalender"></td>
   </tr>
   <tr>
     <td align="center"><b>Startmenü</b><br><sub>Lime-Balken an der gewählten Kategorie, Suche mit Lime-Rahmen</sub></td>
     <td align="center"><b>Kalender</b><br><sub>Heute in Lime, alles andere ruhig</sub></td>
   </tr>
   <tr>
-    <td width="50%"><img src="docs/dateimanager.png" alt="Dateimanager"></td>
+    <td width="50%"><img src="docs/file-manager.png" alt="Dateimanager"></td>
     <td width="50%"><img src="docs/terminal.png" alt="Terminal"></td>
   </tr>
   <tr>
@@ -183,7 +183,7 @@ Nach der Installation findest du alles an den gewohnten Stellen in Linux Mint:
 ### 🎨 Farben
 
 <p align="center">
-  <img src="docs/farben.png" alt="Farbpalette" width="100%">
+  <img src="docs/colors.png" alt="Farbpalette" width="100%">
 </p>
 
 Dieselben Farben wie in der Padel-Punto-App: Lime `#d4f53c` als einziger Akzent, alles andere in abgestuftem Ink.
@@ -213,10 +213,10 @@ und 60 px Symbolgröße in der Mitte. Andere Werte gehen auch, die Pille wächst
 </details>
 
 <details>
-<summary><b>„Double Commander läuft noch“</b></summary>
+<summary><b>„Double Commander is still running“</b></summary>
 <br>
 Double Commander schreibt seine Einstellungen beim Beenden zurück. Erst schließen, dann
-<code>python3 tools/doublecmd_farben.py</code> ausführen (oder <code>install.sh</code> noch einmal).
+<code>python3 tools/doublecmd_colors.py</code> ausführen (oder <code>install.sh</code> noch einmal).
 </details>
 
 <details>
@@ -249,10 +249,10 @@ Die einzelnen Schritte stecken in `tools/`:
 | Skript | Aufgabe |
 |---|---|
 | `padelpunto_theme.py` | baut das Theme aus Mint-Y-Dark: Mint-Grün → Lime, Grautöne → Ink, Text auf Lime wird Ink, Auswahl mit Lime-Balken, Mac-Punkte als Fensterknöpfe |
-| `lime_ordner_papirus.py` | Papirus-Ordner in Lime umfärben |
-| `leisten.py` | richtet obere Leiste und Dock ein, installiert die Applets „Aktives Programm“ und „Kalender (Padel Punto)“ |
-| `doublecmd_farben.py` | Farben für Double Commander setzen (`--zurueck` stellt sie wieder her) |
-| `readme_bilder.py` | die Bilder für diese Seite |
+| `papirus_lime_folders.py` | Papirus-Ordner in Lime umfärben |
+| `panels.py` | richtet obere Leiste und Dock ein, installiert die Applets „Active app“ und „Calendar (Padel Punto)“ |
+| `doublecmd_colors.py` | Farben für Double Commander setzen (`--restore` stellt sie wieder her) |
+| `readme_images.py` | die Bilder für diese Seite |
 
 Benötigt Python 3, Pillow und die Pakete `mint-themes` und `papirus-icon-theme` (auf Linux Mint vorinstalliert).
 </details>

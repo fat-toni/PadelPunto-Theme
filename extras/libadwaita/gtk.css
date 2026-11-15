@@ -1,7 +1,7 @@
 /* >>> padelpunto-libadwaita
-   Padel Punto für libadwaita-Apps (GTK4: Laufwerksbelegung, Kalender, Systemüberwachung …).
-   libadwaita ignoriert GTK-Themes, liest aber ~/.config/gtk-4.0/gtk.css – hier werden nur
-   die benannten Farben überschrieben, das Layout bleibt original. Von install.sh angelegt. */
+   Padel Punto for libadwaita apps (GTK4: Disk Usage Analyzer, Calendar, System Monitor …).
+   libadwaita ignores GTK themes but reads ~/.config/gtk-4.0/gtk.css – only the named
+   colors are overridden here, the layout stays original. Created by install.sh. */
 
 @define-color accent_color #d4f53c;
 @define-color accent_bg_color #d4f53c;
@@ -48,7 +48,7 @@
 @define-color shade_color rgba(0, 0, 0, 0.36);
 @define-color scrollbar_outline_color rgba(0, 0, 0, 0.5);
 
-/* Fensterknöpfe wie im restlichen Theme: Mac-Punkte Gelb / Grün / Rot */
+/* Window buttons as in the rest of the theme: Mac-style dots yellow / green / red */
 windowcontrols > button > image { opacity: 0; transition: opacity 100ms; }
 windowcontrols > button { min-width: 16px; min-height: 16px; padding: 0; margin: 0 4px;
                           border-radius: 50%; box-shadow: none; }

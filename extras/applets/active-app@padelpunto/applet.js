@@ -1,7 +1,7 @@
 const Applet = imports.ui.applet;
 const Cinnamon = imports.gi.Cinnamon;
 
-class AktivesProgramm extends Applet.TextApplet {
+class ActiveApp extends Applet.TextApplet {
     constructor(metadata, orientation, panelHeight, instanceId) {
         super(orientation, panelHeight, instanceId);
         this._applet_label.set_style("font-weight: bold;");
@@ -24,5 +24,5 @@ class AktivesProgramm extends Applet.TextApplet {
 }
 
 function main(metadata, orientation, panelHeight, instanceId) {
-    return new AktivesProgramm(metadata, orientation, panelHeight, instanceId);
+    return new ActiveApp(metadata, orientation, panelHeight, instanceId);
 }

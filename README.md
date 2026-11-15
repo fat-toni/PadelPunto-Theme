@@ -8,7 +8,7 @@
 
 <p align="center">
   <b>Ink black meets lime.</b> A complete dark theme for Linux Mint (Cinnamon):<br>
-  windows, panels, dock, icons, terminal and wallpapers in the colours of Padel Punto.
+  windows, panels, dock, icons, terminal and wallpapers in the colors of Padel Punto.
 </p>
 
 <p align="center">
@@ -38,7 +38,7 @@
     <td width="50%" valign="top">
       <h3>🖥️ Theme</h3>
       Windows, menus, start menu, notifications and Alt-Tab in deep ink with a lime accent.
-      Selected items get a slim lime bar, the window buttons are colourful Mac-style dots.
+      Selected items get a slim lime bar, the window buttons are colorful Mac-style dots.
       Works for old and new apps alike (GTK 2, GTK 3, GTK 4 and libadwaita).
     </td>
     <td width="50%" valign="top">
@@ -63,7 +63,7 @@
 </table>
 
 <p align="center">
-  <img src="docs/leisten.png" alt="Top panel with clock and dock with pill" width="100%">
+  <img src="docs/panels.png" alt="Top panel with clock and dock with pill" width="100%">
 </p>
 
 ## 🚀 Install
@@ -101,11 +101,11 @@ Instead of `--all` you can pick and combine the parts:
 | Option | What it does |
 |---|---|
 | *(none)* | only copy theme and icons, change nothing. Pick them yourself under **System Settings → Themes** |
-| `--activate` | switch theme and icons on, dark mode for all apps, Padel Punto colours for newer GNOME apps too |
+| `--activate` | switch theme and icons on, dark mode for all apps, Padel Punto colors for newer GNOME apps too |
 | `--dock` | set up the top panel (32 px) and dock (76 px) as in the screenshots |
 | `--terminal` | add the terminal profile “Padel Punto” (made the default with `--activate`) |
 | `--doublecmd` | ink & lime for Double Commander (close Double Commander first) |
-| `--flatpak` | let Flatpak apps read the theme, icons and colours (read-only) |
+| `--flatpak` | let Flatpak apps read the theme, icons and colors (read-only) |
 | `--wallpaper` | copy the wallpapers (with `--activate`, set one that fits your screen) |
 | `--all` | all of the above |
 
@@ -143,9 +143,9 @@ After installing, everything sits in the usual places in Linux Mint:
 | **Theme & icons** | System Settings → **Themes**. Window borders, Controls and Desktop: `PadelPunto-Dark`, Icons: `PadelPunto` |
 | **Wallpapers** | System Settings → **Backgrounds** → folder `padelpunto` in the list on the left |
 | **Panel & dock** | right-click the panel → **Panel settings** (height, icon size, auto-hide) |
-| **Clock & active app** | System Settings → **Applets**: “Kalender (Padel Punto)” and “Aktives Programm (Padel Punto)” |
+| **Clock & active app** | System Settings → **Applets**: “Calendar (Padel Punto)” and “Active app (Padel Punto)” |
 | **Terminal profile** | Terminal → menu → **Preferences** → profile “Padel Punto” |
-| **Double Commander** | recoloured directly, see Configuration → Options → Colors |
+| **Double Commander** | recolored directly, see Configuration → Options → Colors |
 
 <details>
 <summary><b>Where the files live</b></summary>
@@ -155,25 +155,25 @@ After installing, everything sits in the usual places in Linux Mint:
 |---|---|
 | Theme | `~/.themes/PadelPunto-Dark` |
 | Icons | `~/.local/share/icons/PadelPunto` |
-| Applets | `~/.local/share/cinnamon/applets/` (`kalender@padelpunto`, `aktives-programm@padelpunto`) |
+| Applets | `~/.local/share/cinnamon/applets/` (`calendar@padelpunto`, `active-app@padelpunto`) |
 | Wallpapers | `~/.local/share/backgrounds/padelpunto` |
-| Colours for newer GNOME apps | `~/.config/gtk-4.0/gtk.css` (only with `--flatpak` or without Mint's libadwaita) |
-| Saved previous settings | `~/.local/share/padelpunto-theme/vorher.txt` |
+| Colors for newer GNOME apps | `~/.config/gtk-4.0/gtk.css` (only with `--flatpak` or without Mint's libadwaita) |
+| Saved previous settings | `~/.local/share/padelpunto-theme/previous.txt` |
 </details>
 
 ## 📸 Screenshots
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/startmenue.png" alt="Start menu"></td>
-    <td width="50%"><img src="docs/kalender.png" alt="Calendar"></td>
+    <td width="50%"><img src="docs/start-menu.png" alt="Start menu"></td>
+    <td width="50%"><img src="docs/calendar.png" alt="Calendar"></td>
   </tr>
   <tr>
     <td align="center"><b>Start menu</b><br><sub>Lime bar on the selected category, search with lime border</sub></td>
     <td align="center"><b>Calendar</b><br><sub>Today in lime, everything else calm</sub></td>
   </tr>
   <tr>
-    <td width="50%"><img src="docs/dateimanager.png" alt="File manager"></td>
+    <td width="50%"><img src="docs/file-manager.png" alt="File manager"></td>
     <td width="50%"><img src="docs/terminal.png" alt="Terminal"></td>
   </tr>
   <tr>
@@ -184,13 +184,13 @@ After installing, everything sits in the usual places in Linux Mint:
 
 <sub>The screenshots show a German desktop, the theme works with any language.</sub>
 
-### 🎨 Colours
+### 🎨 Colors
 
 <p align="center">
-  <img src="docs/farben.png" alt="Colour palette" width="100%">
+  <img src="docs/colors.png" alt="Color palette" width="100%">
 </p>
 
-The same colours as in the Padel Punto app: lime `#d4f53c` as the only accent, everything else in shades of ink.
+The same colors as in the Padel Punto app: lime `#d4f53c` as the only accent, everything else in shades of ink.
 
 ## 🛟 Help
 
@@ -213,14 +213,14 @@ For Flatpak apps also install with <code>--flatpak</code> and restart the app.
 <summary><b>The dock is too big or too small</b></summary>
 <br>
 Right-click the dock → <b>Panel settings</b>. The pill fits best with 76 px height
-and 60 px icon size in the centre zone. Other sizes work too, the pill grows with them.
+and 60 px icon size in the center zone. Other sizes work too, the pill grows with them.
 </details>
 
 <details>
-<summary><b>“Double Commander läuft noch” (still running)</b></summary>
+<summary><b>“Double Commander is still running”</b></summary>
 <br>
 Double Commander writes its settings back when it quits. Close it first, then run
-<code>python3 tools/doublecmd_farben.py</code> (or <code>install.sh</code> again).
+<code>python3 tools/doublecmd_colors.py</code> (or <code>install.sh</code> again).
 </details>
 
 <details>
@@ -253,10 +253,10 @@ The individual steps live in `tools/`:
 | Script | Job |
 |---|---|
 | `padelpunto_theme.py` | builds the theme from Mint-Y-Dark: Mint green → lime, greys → ink, text on lime becomes ink, selection with lime bar, Mac-style window buttons |
-| `lime_ordner_papirus.py` | recolours the Papirus folders to lime |
-| `leisten.py` | sets up top panel and dock, installs the applets “Aktives Programm” and “Kalender (Padel Punto)” |
-| `doublecmd_farben.py` | sets the Double Commander colours (`--restore` brings the old ones back) |
-| `readme_bilder.py` | the images for this page |
+| `papirus_lime_folders.py` | recolors the Papirus folders to lime |
+| `panels.py` | sets up top panel and dock, installs the applets “Active app” and “Calendar (Padel Punto)” |
+| `doublecmd_colors.py` | sets the Double Commander colors (`--restore` brings the old ones back) |
+| `readme_images.py` | the images for this page |
 
 Needs Python 3, Pillow and the packages `mint-themes` and `papirus-icon-theme` (preinstalled on Linux Mint).
 </details>

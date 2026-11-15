@@ -1,16 +1,18 @@
 # Credits
 
-- **Mint-Y-Theme** (Linux Mint, Paket `mint-themes`) – GPL-3.0
+Padel Punto Desktop Theme builds on the work of these projects:
+
+- **Mint-Y theme** (Linux Mint, package `mint-themes`) – GPL-3.0
   https://github.com/linuxmint/mint-themes
-  Das Theme `PadelPunto-Dark` wird beim Bauen aus Mint-Y-Dark (und den Fensterrahmen von Mint-Y)
-  erzeugt: Farben auf Ink & Lime umgestellt, eigene Regeln für Auswahl, Menüs und Fensterknöpfe.
-- **Papirus-Icons** (Papirus Development Team, Paket `papirus-icon-theme`) – GPL-3.0
+  The `PadelPunto-Dark` theme is generated at build time from Mint-Y-Dark (and the window borders of Mint-Y):
+  colors switched to ink & lime, own rules for selection, menus, tooltips and window buttons.
+- **Papirus icons** (Papirus Development Team, package `papirus-icon-theme`) – GPL-3.0
   https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
-  Das Icon-Theme `PadelPunto` erbt Papirus-Dark, die Ordner-Icons sind daraus auf Lime umgefärbt.
-- **Kalender-Applet von Cinnamon** (`calendar@cinnamon.org`, Linux Mint) – GPL-2.0-or-later
+  The `PadelPunto` icon theme inherits Papirus-Dark, its folder icons are recolored to lime.
+- **Cinnamon calendar applet** (`calendar@cinnamon.org`, Linux Mint) – GPL-2.0-or-later
   https://github.com/linuxmint/cinnamon
-  `--dock` kopiert das Applet des installierten Systems als `kalender@padelpunto` und ändert nur
-  die Anzeige in der Leiste. Der Code wird nicht mit diesem Paket verteilt.
-- **Michroma** (Schrift in den Hintergründen) von Vernon Adams – SIL Open Font License 1.1,
-  siehe `extras/wallpapers/OFL-Michroma.txt`.
-- Name und Logo **Padel Punto** gehören zum Padel-Punto-Projekt.
+  `--dock` copies the applet of the installed system as `calendar@padelpunto` and only changes
+  its panel label. The code is not distributed with this package.
+- **Michroma** (font in the wallpapers) by Vernon Adams – SIL Open Font License 1.1,
+  see `extras/wallpapers/OFL-Michroma.txt`.
+- The name and logo **Padel Punto** belong to the Padel Punto project.

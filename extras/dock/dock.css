@@ -1,20 +1,20 @@
 
 /* >>> padelpunto-dock (optional, ./install.sh --dock)
-   Abgestimmt auf eine untere Leiste mit 76 px Höhe und Fensterliste in der Mitte:
-   Einstellungen → Leiste → Höhe 76, Symbolgröße Mitte 60. */
+   Made for a bottom panel 76 px high with the window list in the center:
+   Panel settings → height 76, center zone icon size 60. */
 .panel-bottom { background-color: transparent; box-shadow: none; }
 
-/* Punkte statt Balken unter laufenden Programmen */
+/* Dots instead of bars under running apps */
 .panel-bottom .grouped-window-list-item-box,
 .panel-bottom .grouped-window-list-item-box:active,
 .panel-bottom .grouped-window-list-item-box:focus { border-bottom: none; }
 .panel-bottom .grouped-window-list-item-box:active { background-image: url("assets/padelpunto/dot-running.svg"); }
 .panel-bottom .grouped-window-list-item-box:focus { background-color: transparent; background-image: url("assets/padelpunto/dot-focus.svg"); }
-/* Hover: abgerundete Kachel um das Icon */
+/* Hover: rounded tile around the icon */
 .panel-bottom .grouped-window-list-item-box:hover,
 .panel-bottom .grouped-window-list-item-box:focus:hover { background-color: transparent; border-image: url("assets/padelpunto/hover.svg") 22 22 27 22; }
 .panel-bottom .grouped-window-list-item-box { padding-bottom: 6px; }
 
-/* Schwebende Pille hinter dem Dock (9-Slice-Grafik, unten 7 px Luft) */
+/* Floating pill behind the dock (9-slice image, 7 px gap at the bottom) */
 .panel-bottom .grouped-window-list-box { border-image: url("assets/padelpunto/pill.svg") 25 25 32 25; padding: 0 10px; margin: 0; }
 /* <<< padelpunto-dock */

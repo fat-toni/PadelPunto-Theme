@@ -12,6 +12,11 @@ for f in "$DATA/previous.txt" "$DATA/vorher.txt"; do
   if [ -f "$f" ]; then
     echo "→ Restoring previous settings"
     while read -r schema key value; do gsettings set "$schema" "$key" "$value" || true; done < "$f"
+    # Cinnamon writes values back for a panel that is just being removed – set the panel keys once more
+    if grep -q '^org.cinnamon panel' "$f"; then
+      sleep 1
+      grep '^org.cinnamon panel' "$f" | while read -r schema key value; do gsettings set "$schema" "$key" "$value" || true; done
+    fi
     break
   fi
 done
@@ -64,8 +69,9 @@ fi
 LST="$HOME/.config/cinnamon/backgrounds/user-folders.lst"
 if [ -f "$LST" ]; then grep -vxF "$BACKGROUNDS" "$LST" > "$LST.new" || true; mv "$LST.new" "$LST"; fi
 
-# applets (and their names in older versions)
-rm -rf "$APPLETS/active-app@padelpunto" "$APPLETS/calendar@padelpunto" \
-       "$APPLETS/aktives-programm@padelpunto" "$APPLETS/kalender@padelpunto"
+# applets and their settings (also the names used by older versions)
+for a in active-app calendar aktives-programm kalender; do
+  rm -rf "$APPLETS/$a@padelpunto" "$HOME/.config/cinnamon/spices/$a@padelpunto"
+done
 rm -rf "$HOME/.themes/PadelPunto-Dark" "$HOME/.local/share/icons/PadelPunto" "$BACKGROUNDS" "$DATA"
 echo "Removed."

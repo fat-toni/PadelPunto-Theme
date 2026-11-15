@@ -28,15 +28,14 @@ BACKGROUNDS="$HOME/.local/share/backgrounds/padelpunto"
 TERM_UUID="d4f53c0b-0d0f-4a1e-9b2c-5ad31e0b0d0f"
 mkdir -p "$THEMES" "$ICONS" "$DATA"
 # Older versions saved the previous settings as vorher.txt
-if [ -f "$DATA/vorher.txt" ] && [ ! -f "$DATA/previous.txt" ]; then
-  mv "$DATA/vorher.txt" "$DATA/previous.txt"
-  if [ -f "$DATA/vorher.txt.fertig" ]; then mv "$DATA/vorher.txt.fertig" "$DATA/previous.txt.done"; fi
-fi
+if [ -f "$DATA/vorher.txt" ] && [ ! -f "$DATA/previous.txt" ]; then mv "$DATA/vorher.txt" "$DATA/previous.txt"; fi
+rm -f "$DATA/vorher.txt.fertig" "$DATA/previous.txt.done"
+touch "$DATA/previous.txt"
 
 SCHEMAS=$(gsettings list-schemas 2>/dev/null || true)
 have() { grep -qx "$1" <<< "$SCHEMAS"; }
-# Save old values on the first install only (uninstall.sh restores them)
-remember() { if have "$1" && [ ! -f "$DATA/previous.txt.done" ]; then echo "$1 $2 $(gsettings get "$1" "$2")" >> "$DATA/previous.txt"; fi; }
+# Save each old value once, before this package changes it the first time (uninstall.sh restores them)
+remember() { if have "$1" && ! grep -q "^$1 $2 " "$DATA/previous.txt"; then echo "$1 $2 $(gsettings get "$1" "$2")" >> "$DATA/previous.txt"; fi; }
 set_key() { if have "$1"; then gsettings set "$1" "$2" "$3" || true; fi; }
 
 echo "→ Theme to $THEMES/PadelPunto-Dark"
@@ -149,5 +148,4 @@ if [ $ACTIVATE = 1 ]; then
   # Reload the Cinnamon theme (switch away briefly and back)
   if have org.cinnamon.theme; then gsettings set org.cinnamon.theme name cinnamon; sleep 1; gsettings set org.cinnamon.theme name PadelPunto-Dark; fi
 fi
-if [ -f "$DATA/previous.txt" ]; then touch "$DATA/previous.txt.done"; fi
 echo "Done. To undo: ./uninstall.sh"

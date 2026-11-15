@@ -36,8 +36,8 @@ rm -rf "$THEMES/PadelPunto-Dark"; cp -a themes/PadelPunto-Dark "$THEMES/"
 echo "→ Icons nach $ICONS/PadelPunto"
 rm -rf "$ICONS/PadelPunto"; cp -a icons/PadelPunto "$ICONS/"
 
-if [ ! -d /usr/share/icons/Mint-Y ]; then
-  echo "! Hinweis: Das Icon-Theme 'PadelPunto' baut auf Mint-Y auf:  sudo apt install mint-y-icons"
+if [ ! -d /usr/share/icons/Papirus-Dark ]; then
+  echo "! Hinweis: Das Icon-Theme 'PadelPunto' baut auf Papirus-Dark auf:  sudo apt install papirus-icon-theme"
 fi
 
 if [ $DOCK = 1 ]; then

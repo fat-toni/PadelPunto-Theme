@@ -46,8 +46,8 @@
     </td>
     <td width="50%" valign="top">
       <h3>📁 Icons <code>PadelPunto</code></h3>
-      Die vertrauten Mint-Y-Icons – nur die Ordner leuchten in Lime.
-      Musik, Bilder, Downloads & Co. behalten ihre Symbole.
+      Auf Basis von Papirus-Dark: flache, moderne Icons für fast jede App und jeden
+      Dateityp. Die Ordner leuchten in Lime, Musik, Bilder, Downloads & Co. behalten ihre Symbole.
     </td>
   </tr>
   <tr>
@@ -153,10 +153,10 @@ Die einzelnen Schritte stecken in `tools/`:
 | `padelpunto_theme.py` | baut das Theme aus Mint-Y-Dark: Mint-Grün → Lime, Grautöne → Ink, Text auf Lime wird Ink, Auswahl mit Lime-Balken, Mac-Punkte als Fensterknöpfe |
 | `doublecmd_farben.py` | Farben für Double Commander setzen (`--zurueck` stellt sie wieder her) |
 | `leisten.py` | richtet obere Leiste und Dock ein (von `install.sh --dock` aufgerufen), installiert die Applets „Aktives Programm“ und „Kalender (Padel Punto)“ |
-| `lime_ordner_minty.py` | Mint-Y-Ordner in Lime umfärben |
+| `lime_ordner_papirus.py` | Papirus-Ordner in Lime umfärben |
 | `readme_bilder.py` | die Bilder für diese Seite |
 
-Benötigt Python 3, Pillow und die Mint-Pakete `mint-themes` und `mint-y-icons` (auf Linux Mint vorinstalliert).
+Benötigt Python 3, Pillow und die Pakete `mint-themes` und `papirus-icon-theme` (auf Linux Mint vorinstalliert).
 </details>
 
 ## 🎾 Padel Punto

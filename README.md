@@ -51,8 +51,10 @@
     <td width="50%" valign="top">
       <h3>⚓ Dock & top panel</h3>
       A dock at the bottom with a floating pill and dots under running apps.
-      A slim top panel with menu, workspaces, active app and a clock with a lime dot
-      in the middle. Your pinned apps are kept.
+      A slim top panel with menu, workspaces (the active one as a lime pill), active app
+      and a clock with a lime dot in the middle. Your pinned apps are kept.
+      Switch workspaces with <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>←</kbd> / <kbd>→</kbd>,
+      overview with <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>↑</kbd>.
     </td>
     <td width="50%" valign="top">
       <h3>⌨️ Terminal, Double Commander & wallpapers</h3>

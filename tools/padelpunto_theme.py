@@ -218,8 +218,24 @@ CINNAMON_OWN = """
 
 /* Top panel semi-transparent with a fine edge */
 .panel-top { background-color: rgba(11, 13, 15, 0.55); border-bottom: 1px solid rgba(255, 255, 255, 0.11); box-shadow: none; }
+
+/* Workspace switcher (top panel): plain numbers, active = lime pill, empty = muted */
+.panel-top .workspace-switcher { padding: 0 6px; }
+.panel-top .workspace-button { border: none; width: 26px; padding: 0; background-color: transparent; background-image: none; color: #c9cdd1; font-weight: bold; }
+.panel-top .workspace-button:shaded { background-color: transparent; color: rgba(230, 232, 234, 0.32); }
+.panel-top .workspace-button:hover, .panel-top .workspace-button:shaded:hover {
+  background-color: transparent; background-image: url("assets/padelpunto/ws-num-hover.svg"); color: #e6e8ea;
+}
+.panel-top .workspace-button:outlined, .panel-top .workspace-button:outlined:hover {
+  background-color: transparent; background-image: url("assets/padelpunto/ws-num-active.svg"); color: #0b0d0f;
+}
 /* <<< padelpunto */
 """
+
+# Pills for the workspace switcher (26x32, the panel centers them at any height)
+WS_PILL = '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="32"><rect x="1" y="6" width="24" height="20" rx="10" fill="{}"/></svg>\n'
+WS_ASSETS = {"ws-num-active.svg": WS_PILL.format("#d4f53c"),
+             "ws-num-hover.svg": WS_PILL.format('#ffffff" fill-opacity="0.08')}
 
 # GTK2 (e.g. Double Commander): set the base colors directly, Mint's GTK2 is lighter than its GTK3
 GTK2_COLORS = {"base_color": "#0B0D0F", "bg_color": "#15181B", "fg_color": "#E6E8EA", "text_color": "#E6E8EA",
@@ -288,6 +304,10 @@ def main():
                     css = re.sub(rf"(@define-color {k}) [^;]+;", rf"\1 {v};", css)
                 open(p, "w", encoding="utf-8").write(css + GTK_OWN)
     open(os.path.join(TARGET, "cinnamon", "cinnamon.css"), "a", encoding="utf-8").write(CINNAMON_OWN)
+    assets = os.path.join(TARGET, "cinnamon", "assets", "padelpunto")
+    os.makedirs(assets, exist_ok=True)
+    for f, svg in WS_ASSETS.items():
+        open(os.path.join(assets, f), "w", encoding="utf-8").write(svg)
 
     # Mint's libadwaita reads libadwaita-1.x/ from the GTK theme: same colors + Mac-style dots as
     # extras/libadwaita/gtk.css (which stays for distributions without Mint's libadwaita)

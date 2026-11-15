@@ -51,8 +51,10 @@
     <td width="50%" valign="top">
       <h3>⚓ Dock & obere Leiste</h3>
       Unten ein Dock mit schwebender Pille und Punkten unter laufenden Programmen.
-      Oben eine schmale Leiste mit Menü, Arbeitsflächen, aktivem Programm und der Uhr
-      mit Lime-Punkt in der Mitte. Deine angehefteten Programme bleiben erhalten.
+      Oben eine schmale Leiste mit Menü, Arbeitsflächen (die aktive als Lime-Pille), aktivem
+      Programm und der Uhr mit Lime-Punkt in der Mitte. Deine angehefteten Programme bleiben erhalten.
+      Arbeitsfläche wechseln mit <kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>←</kbd> / <kbd>→</kbd>,
+      Übersicht mit <kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>↑</kbd>.
     </td>
     <td width="50%" valign="top">
       <h3>⌨️ Terminal, Double Commander & Hintergründe</h3>

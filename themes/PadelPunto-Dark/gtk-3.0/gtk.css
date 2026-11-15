@@ -634,26 +634,26 @@ modelbutton.flat arrow.right {
 
 button:link, button:visited,
 *:link {
-  color: #5294E2; }
+  color: #d4f53c; }
   button:visited,
   *:link:visited {
-    color: #5294E2; }
+    color: #d4f53c; }
     *:selected button:visited, *:selected *:link:visited {
-      color: #eefbb1; }
+      color: #0b0d0f; }
   button:hover:link, button:hover:visited,
   *:link:hover {
-    color: #7eafe9; }
+    color: #e6fa8c; }
     *:selected button:hover:link, *:selected button:hover:visited, *:selected *:link:hover {
-      color: #ebf6ee; }
+      color: #0b0d0f; }
   button:active:link, button:active:visited,
   *:link:active {
-    color: #5294E2; }
+    color: #d4f53c; }
     *:selected button:active:link, *:selected button:active:visited, *:selected *:link:active {
-      color: #f6fdd8; }
+      color: #0b0d0f; }
   infobar.info *:link, infobar.question *:link, infobar.warning *:link, infobar.error *:link, headerbar.selection-mode .subtitle:link,
   .selection-mode.titlebar:not(headerbar) .subtitle:link, button:selected:link, button:selected:visited, *:selected button:link, *:selected button:visited,
   *:link:selected, *:selected *:link {
-    color: #f6fdd8; }
+    color: #0b0d0f; }
 
 button:link > label, button:visited > label {
   text-decoration-line: underline; }

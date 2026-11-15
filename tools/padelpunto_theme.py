@@ -9,7 +9,7 @@ default /usr/share/themes. Steps:
   1. Mint green (#35a854 and every tone mixed from it) -> lime #d4f53c
      (light: lime stays for surfaces, text and outlines get a deeper lime that is readable on white)
   2. Mint greys -> Padel Punto ink scale
-  3. white on lime -> ink (text, check marks, switches)
+  3. white on lime -> ink (text, check marks, switches), blue links -> lime
   4. the same rules for PNG/SVG images
   5. own rules: selection with a lime bar, sidebars, menus, start menu, tooltips,
      window buttons as Mac-style dots (yellow/green/red), top panel, workspace switcher
@@ -122,6 +122,23 @@ def ink_on_lime(css):
         if not (LIME_BG.search(body) or (SELECTED.search(sel) and not own_bg)):
             return m.group(0)
         return sel + "{" + WHITE_TEXT.sub(lambda c: c.group(1) + (f"rgba(11, 13, 15, {c.group(3)})" if c.group(3) else "#0b0d0f"), body) + "}"
+    return re.sub(r"([^{}]+)\{([^{}]*)\}", block, css)
+
+
+LINK_BLUE = {"#5294e2": (OLIVE, LIME), "#7eafe9": ((107, 140, 0), (230, 250, 140))}   # Mint-Y link, link hover
+
+
+def link_colors(css):
+    """Mint-Y keeps links blue: lime in the dark variant, deep lime in the light one,
+    ink on a (lime) selection."""
+    for blue, (light, dark) in LINK_BLUE.items():
+        css = re.sub(blue, hexf(light if LIGHT else dark), css, flags=re.I)
+
+    def block(m):
+        sel, body = m.group(1), m.group(2)
+        if ":link" in sel and SELECTED.search(sel) and not ANY_BG.search(body):
+            body = re.sub(r"(?<![-\w])color:\s*[^;}]+", "color: #0b0d0f", body)
+        return sel + "{" + body + "}"
     return re.sub(r"([^{}]+)\{([^{}]*)\}", block, css)
 
 
@@ -469,7 +486,7 @@ def main():
                 t = open(p, encoding="utf-8", errors="surrogateescape").read()
                 u = recolor_css(t) if f.endswith(".css") else recolor_text(t)
                 if f.endswith(".css"):
-                    u = ink_on_lime(u)
+                    u = link_colors(ink_on_lime(u))
                 if f.endswith(".svg"):
                     u = svg_ink(u)
                 if u != t:

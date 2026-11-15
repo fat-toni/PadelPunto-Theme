@@ -863,21 +863,21 @@ windowcontrols list > row button:not(.flat).destructive-action {
 
 button.link,
 link {
-  color: #5294E2;
+  color: #d4f53c;
   text-decoration: underline; }
   button.link:visited,
   link:visited {
-    color: #5294E2; }
+    color: #d4f53c; }
     *:selected button.link:visited, *:selected link:visited {
       color: #eefbb1; }
   button.link:hover,
   link:hover {
-    color: #7eafe9; }
+    color: #e6fa8c; }
     *:selected button.link:hover, *:selected link:hover {
       color: #ebf6ee; }
   button.link:active,
   link:active {
-    color: #5294E2; }
+    color: #d4f53c; }
     *:selected button.link:active, *:selected link:active {
       color: #f6fdd8; }
   button.link:disabled,
@@ -885,7 +885,7 @@ link {
     color: rgba(154, 154, 154, 0.8); }
   infobar.info *:link, infobar.question *:link, infobar.warning *:link, infobar.error *:link, button.link:selected, *:selected button.link,
   link:selected, *:selected link {
-    color: #f6fdd8; }
+    color: #0b0d0f; }
 
 link {
   outline-color: alpha(currentColor,0.3);

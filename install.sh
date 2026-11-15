@@ -108,7 +108,7 @@ if [ $AKTIV = 1 ]; then
   merke org.cinnamon.desktop.interface gtk-theme;  merke org.cinnamon.desktop.interface icon-theme
   merke org.cinnamon.desktop.wm.preferences theme; merke org.cinnamon.theme name
   merke org.gnome.desktop.interface gtk-theme;     merke org.gnome.desktop.interface icon-theme
-  merke org.gnome.desktop.interface color-scheme
+  merke org.gnome.desktop.interface color-scheme;  merke org.x.apps.portal color-scheme
   if [ $TERMINAL = 1 ]; then merke org.gnome.Terminal.ProfilesList default; fi
   if [ $HG = 1 ]; then merke org.cinnamon.desktop.background picture-uri; fi
   setze org.cinnamon.desktop.interface gtk-theme PadelPunto-Dark
@@ -118,6 +118,7 @@ if [ $AKTIV = 1 ]; then
   setze org.gnome.desktop.interface gtk-theme PadelPunto-Dark
   setze org.gnome.desktop.interface icon-theme PadelPunto
   setze org.gnome.desktop.interface color-scheme prefer-dark   # Electron/libadwaita-Apps starten dunkel
+  setze org.x.apps.portal color-scheme prefer-dark              # Mint: Browser, Webseiten und Flatpaks fragen das Portal
   # libadwaita (GTK4): Mints libadwaita liest das Theme selbst (libadwaita-1.x/ im Theme).
   # Das normale libadwaita ignoriert GTK-Themes und liest nur ~/.config/gtk-4.0/gtk.css.
   ADW="$HOME/.config/gtk-4.0/gtk.css"

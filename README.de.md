@@ -116,12 +116,20 @@ cd PadelPunto-Theme
 <sub>Ohne git: oben auf dieser Seite **Code → Download ZIP**, die Datei entpacken,
 den Ordner öffnen, Rechtsklick in eine freie Stelle → **Im Terminal öffnen**.</sub>
 
-**2. Installieren und einschalten** – dunkel oder hell:
+**2. Den Installer starten:**
 
 ```bash
-./install.sh --alles          # dunkel
-./install.sh --alles --hell   # hell
+./install.sh
 ```
+
+Er führt dich Schritt für Schritt durch: dunkel oder hell, dann jeder Teil mit einer kurzen Erklärung –
+<kbd>Enter</kbd> nimmt den Vorschlag. Gefragt wird nur nach dem, was auf deinem Rechner da ist.
+
+<p align="center">
+  <img src="docs/guide-de.png" alt="Der Installations-Assistent im Terminal" width="80%">
+</p>
+
+<sub>Eilig? `./install.sh --alles` installiert alles in dunkel, `./install.sh --alles --hell` in hell – ohne Fragen.</sub>
 
 **3. Fertig.** Das Theme ist sofort aktiv. Damit wirklich alles umschaltet, auch die Fensterrahmen
 und schon geöffnete Programme, einmal **ab- und wieder anmelden**.
@@ -136,7 +144,7 @@ Statt `--alles` lassen sich die Teile einzeln wählen und kombinieren:
 
 | Option | Was passiert |
 |---|---|
-| *(keine)* | beim ersten Mal: Themes und Icons nur kopieren, nichts umschalten. Auswählen dann selbst unter **Systemeinstellungen → Themen**. Später: Update mit deiner bisherigen Auswahl |
+| *(keine)* | im Terminal: der Installations-Assistent. Ohne Terminal (oder mit `--update`): beim ersten Mal nur Themes und Icons kopieren, später Update mit deiner bisherigen Auswahl |
 | `--aktivieren` | Theme und Icons einschalten, dunkler (oder heller) Modus für alle Apps, Padel-Punto-Farben auch für neuere GNOME-Apps |
 | `--dock` | obere Leiste (32 px) und Dock (76 px) wie auf den Bildern einrichten |
 | `--terminal` | Terminal-Profile „Padel Punto“ und „Padel Punto Light“ anlegen (das passende wird mit `--aktivieren` Standard) |
@@ -169,8 +177,8 @@ git pull
 ./install.sh
 ```
 
-Ohne Optionen wiederholt das Skript deine bisherige Auswahl (Teile und Variante).
-Danach einmal ab- und wieder anmelden.
+Der Installer bietet an, mit deiner bisherigen Auswahl (Teile und Variante) zu aktualisieren – einfach <kbd>Enter</kbd> drücken.
+`./install.sh --update` macht dasselbe ohne Nachfrage. Danach einmal ab- und wieder anmelden.
 </details>
 
 ## 🧭 Wo finde ich was?

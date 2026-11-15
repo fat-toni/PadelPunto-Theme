@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
-# Install the Padel Punto desktop theme (current user only, no sudo needed).
+# Install the Padel Punto desktop theme (for the current user).
+#   ./install.sh                 guided: asks step by step (dark or light, which parts)
 #   ./install.sh --all           everything (theme, icons, dock, terminal, Double Commander, Qt apps, Flatpak, wallpapers), dark
 #   ./install.sh --all --light   the same in light
-#   ./install.sh                 only copy themes + icons (or, after an earlier run: update with the same choice)
 # Single parts:  --activate  --dock  --terminal  --doublecmd  --qt  --flatpak  --wallpaper
 # Variant:       --dark  --light  (remembered; switch any time:  ./install.sh --light)
-# German names work too:  --alles  --aktivieren  --hintergrund  --dunkel  --hell
+# Without a terminal (or with --update): only copy themes + icons, after an earlier run update with the same choice
+# German names work too:  --alles  --aktivieren  --hintergrund  --dunkel  --hell  --assistent
 set -euo pipefail
 cd "$(dirname "$(readlink -f "$0")")"
 
-ACTIVATE=0 DOCK=0 TERMINAL=0 DC=0 QT=0 FP=0 WP=0 VARIANT=""
+ACTIVATE=0 DOCK=0 TERMINAL=0 DC=0 QT=0 FP=0 WP=0 VARIANT="" GUIDE=0
+if [ $# -eq 0 ] && [ -t 0 ] && [ -t 1 ]; then GUIDE=1; fi   # started by hand in a terminal: guide through it
 for a in "$@"; do
   case "$a" in
     --activate|--aktivieren) ACTIVATE=1 ;;
@@ -22,7 +24,9 @@ for a in "$@"; do
     --all|--alles) ACTIVATE=1 DOCK=1 TERMINAL=1 DC=1 QT=1 FP=1 WP=1 ;;
     --light|--hell) VARIANT=Light ;;
     --dark|--dunkel) VARIANT=Dark ;;
-    -h|--help|--hilfe) sed -n '2,8p' "$0" | cut -c3-; exit 0 ;;
+    --guided|--assistent) GUIDE=1 ;;
+    --update) ;;
+    -h|--help|--hilfe) sed -n '2,9p' "$0" | cut -c3-; exit 0 ;;
     *) echo "Unknown option: $a (see --help)"; exit 1 ;;
   esac
 done
@@ -39,6 +43,7 @@ touch "$DATA/previous.txt" "$DATA/parts"
 # Choices of earlier runs (DATA/parts): the parts and the variant
 part() { grep -qx "$1" "$DATA/parts"; }
 keep() { part "$1" || echo "$1" >> "$DATA/parts"; }
+if [ $GUIDE = 1 ]; then . tools/guide.sh; fi
 if [ $((ACTIVATE + DOCK + TERMINAL + DC + QT + FP + WP)) -eq 0 ] && grep -qv '^variant-' "$DATA/parts"; then
   # no parts given after an earlier run (only --light/--dark or nothing) = update with the same choice
   echo "→ Update with your earlier choice: $(grep -v '^variant-' "$DATA/parts" | tr '\n' ' ')"
@@ -259,3 +264,8 @@ case "$CURRENT" in "'PadelPunto-Dark'"|"'PadelPunto-Light'")
 esac
 echo "Done ($THEME). To undo: ./uninstall.sh"
 if [ $QT_NEW = 1 ]; then echo "! Qt apps (VLC, KeePassXC …) get the new look after you log out and back in once."; fi
+if [ $GUIDE = 1 ]; then
+  printf '\n%s● %s%s\n' "$G$B" "$(t "Done!" "Fertig!")" "$R"
+  echo "  $(t "Log out and back in once, so that everything switches over." "Melde dich einmal ab und wieder an, damit alles umstellt.")"
+  echo "  $(t "Switch later:  ./install.sh --light  or  --dark      Undo:  ./uninstall.sh" "Später wechseln:  ./install.sh --hell  oder  --dunkel      Rückgängig:  ./uninstall.sh")"
+fi

@@ -9,6 +9,7 @@ Expects screenshots in ~/.cache:
   rd-light-*.png              the same for the light variant: rd-light-term, rd-light-nemo,
                               rd-light-menu, rd-light-menu-full, rd-light-panels-full
   rd-qt.png, rd-light-qt.png  a Qt window (widget gallery) with the Kvantum themes
+  rd-guide-en.png, rd-guide-de.png  terminal with the guided installer waiting at "Install now?"
 Private details are painted over: user name in the start menu -> "Padel Punto",
 user name in the Nemo path bar removed.
 """
@@ -128,6 +129,15 @@ for f, out, wall, xy, alpha in (("rd-qt.png", "qt-apps.png", WALL, (1700, 250), 
                                 ("rd-light-qt.png", "qt-apps-light.png", WALL_LIGHT, (1700, 250), 70)):
     q = Image.open(C + f).convert("RGB")
     card(rounded(q, (0, 0, q.width, q.height), 10), os.path.join(DOCS, out), src_xy=xy, wall_file=wall, alpha=alpha)
+
+# --- guided installer: terminal content without scrollbar and empty rows, with some padding
+for f, out in (("rd-guide-en.png", "guide.png"), ("rd-guide-de.png", "guide-de.png")):
+    g = Image.open(C + f).convert("RGB")
+    bgc = g.getpixel((g.width - 40, g.height - 5))
+    rows = [y for y in range(g.height) if any(g.getpixel((x, y)) != bgc for x in range(0, g.width - 20, 2))]
+    g = g.crop((0, 0, g.width - 16, rows[-1] + 14))
+    pad = Image.new("RGB", (g.width + 36, g.height + 36), bgc); pad.paste(g, (18, 18))
+    card(rounded(pad, (0, 0, pad.width, pad.height), 12), os.path.join(DOCS, out), src_xy=(1500, 200))
 
 # --- dark | light: the two hero images, split by a slanted lime edge
 hero_d = Image.open(os.path.join(DOCS, "desktop.png")).convert("RGB")

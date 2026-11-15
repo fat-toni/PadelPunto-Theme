@@ -116,12 +116,20 @@ cd PadelPunto-Theme
 <sub>Without git: click **Code → Download ZIP** at the top of this page, extract it,
 open the folder, right-click an empty spot → **Open in Terminal**.</sub>
 
-**2. Install and switch it on** – dark or light:
+**2. Start the installer:**
 
 ```bash
-./install.sh --all            # dark
-./install.sh --all --light    # light
+./install.sh
 ```
+
+It guides you through it step by step: dark or light, then each part with a short explanation –
+press <kbd>Enter</kbd> to take the suggestion. It only asks about what is on your computer.
+
+<p align="center">
+  <img src="docs/guide.png" alt="The guided installer in the terminal" width="80%">
+</p>
+
+<sub>In a hurry? `./install.sh --all` installs everything in dark, `./install.sh --all --light` in light – without questions.</sub>
 
 **3. Done.** The theme is active right away. To make sure everything switches over,
 including window borders and apps that are already open, **log out and back in** once.
@@ -136,7 +144,7 @@ Instead of `--all` you can pick and combine the parts:
 
 | Option | What it does |
 |---|---|
-| *(none)* | first run: only copy themes and icons, change nothing. Pick them yourself under **System Settings → Themes**. Later runs: update with your earlier choice |
+| *(none)* | in a terminal: the guided installer. Without a terminal (or with `--update`): first run only copies themes and icons, later runs update with your earlier choice |
 | `--activate` | switch theme and icons on, dark (or light) mode for all apps, Padel Punto colors for newer GNOME apps too |
 | `--dock` | set up the top panel (32 px) and dock (76 px) as in the screenshots |
 | `--terminal` | add the terminal profiles “Padel Punto” and “Padel Punto Light” (the matching one becomes the default with `--activate`) |
@@ -169,8 +177,8 @@ git pull
 ./install.sh
 ```
 
-Without options the script repeats your earlier choice (parts and variant).
-Then log out and back in once.
+The installer offers to update with your earlier choice (parts and variant) – just press <kbd>Enter</kbd>.
+`./install.sh --update` does the same without asking. Then log out and back in once.
 </details>
 
 ## 🧭 Where to find things

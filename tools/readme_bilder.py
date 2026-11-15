@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Readme-Bilder aus echten Aufnahmen bauen (docs/*.png).
 Erwartet Aufnahmen in ~/.cache: rd-term.png, rd-nemo2.png (ScreenshotWindow mit Rahmen),
-rd-menu.png, rd-kal.png (Ausschnitte), rd-menu-full.png (ganzer Bildschirm für Leiste + Dock).
+rd-menu.png, rd-kal.png (Ausschnitte), rd-menu-full.png (ganzer Bildschirm für Leiste + Dock),
+rd-leisten-full.png (ganzer Bildschirm ohne offenes Menü, für die Nahaufnahme von Leiste und Dock).
 Privates wird übermalt: Benutzername im Startmenü -> "Padel Punto", Name im Nemo-Pfad entfernt."""
 import os
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
@@ -63,6 +64,21 @@ shadow_paste(hero, nemo, (330, 380), blur=36, off=18, alpha=170)
 shadow_paste(hero, term, (1150, 880), blur=36, off=18, alpha=170)
 hero = hero.convert("RGB").resize((2580, 1080), Image.LANCZOS)
 hero.save(os.path.join(DOCS, "desktop.png"), optimize=True); print("desktop.png")
+
+# --- Leiste + Dock (Nahaufnahme): obere Leiste zusammengeschoben, darunter das Dock
+lf = Image.open(C + "rd-leisten-full.png").convert("RGBA")
+BW, S2 = 1400, 2
+bar = Image.new("RGBA", (BW, 32), lf.getpixel((1000, 16)))
+links, mitte, rechts = lf.crop((0, 0, 330, 32)), lf.crop((1560, 0, 1900, 32)), lf.crop((3276, 0, 3430, 32))
+bar.alpha_composite(links, (0, 0)); bar.alpha_composite(mitte, ((BW - mitte.width) // 2, 0)); bar.alpha_composite(rechts, (BW - rechts.width, 0))
+dockn = lf.crop((1360, 1364, 2080, lf.height))
+W2, H2 = BW + 120, 32 + 60 + dockn.height + 100
+bg = Image.open(WALL).convert("RGBA").crop((1500, 1100, 1500 + W2, 1100 + H2))
+bg = Image.alpha_composite(bg, Image.new("RGBA", bg.size, (0, 0, 0, 70)))
+shadow_paste(bg, rounded(bar, (0, 0, BW, 32), 10), (60, 50), blur=16, off=6, alpha=120)
+bg.alpha_composite(dockn, ((W2 - dockn.width) // 2, H2 - dockn.height - 40))
+bg = bg.resize((W2 * S2 // 2, H2 * S2 // 2), Image.LANCZOS)
+bg.convert("RGB").save(os.path.join(DOCS, "leisten.png"), optimize=True); print("leisten.png")
 
 # --- Banner aus dem Logo-Hintergrund
 logo = Image.open(os.path.join(WP, "PadelPunto-3840x2160.png")).convert("RGB")

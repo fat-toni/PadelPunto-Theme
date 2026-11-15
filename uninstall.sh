@@ -45,6 +45,8 @@ for line in open(p).read().splitlines():
 open(p, "w").write("\n".join(out) + "\n")
 PY
 fi
+LST="$HOME/.config/cinnamon/backgrounds/user-folders.lst"
+if [ -f "$LST" ]; then grep -vxF "$HOME/.local/share/backgrounds/padelpunto" "$LST" > "$LST.neu" || true; mv "$LST.neu" "$LST"; fi
 rm -rf "$HOME/.local/share/cinnamon/applets/aktives-programm@padelpunto" \
        "$HOME/.local/share/cinnamon/applets/kalender@padelpunto"
 rm -rf "$HOME/.themes/PadelPunto-Dark" "$HOME/.local/share/icons/PadelPunto" \

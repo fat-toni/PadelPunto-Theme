@@ -94,6 +94,12 @@ if [ $HG = 1 ]; then
   echo "→ Hintergründe nach $HOME/.local/share/backgrounds/padelpunto"
   mkdir -p "$HOME/.local/share/backgrounds/padelpunto"
   cp extras/wallpapers/*.png "$HOME/.local/share/backgrounds/padelpunto/"
+  # In den Systemeinstellungen unter „Hintergründe“ als eigener Ordner zeigen
+  if have org.cinnamon; then
+    LST="$HOME/.config/cinnamon/backgrounds/user-folders.lst"; mkdir -p "$(dirname "$LST")"
+    [ -f "$LST" ] || xdg-user-dir PICTURES > "$LST" 2>/dev/null || true
+    grep -qxF "$HOME/.local/share/backgrounds/padelpunto" "$LST" || echo "$HOME/.local/share/backgrounds/padelpunto" >> "$LST"
+  fi
 fi
 
 if [ $AKTIV = 1 ]; then

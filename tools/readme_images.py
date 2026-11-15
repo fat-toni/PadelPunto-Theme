@@ -141,26 +141,29 @@ comp.save(os.path.join(DOCS, "dark-light.png"), optimize=True); print("dark-ligh
 # --- all wallpapers as thumbnails
 walls = [("PadelPunto-3840x2160.png", "Logo · 3840×2160"), ("PadelPunto-Dark-2560x1440.png", "Logo dark · 2560×1440"),
          ("PadelPunto-3440x1440.png", "Logo · 3440×1440"), ("PadelPunto-Court-3440x1440.png", "Court · 3440×1440"),
-         ("PadelPunto-Court-Dark-3440x1440.png", "Court dark · 3440×1440"), ("PadelPunto-Dual-6000x1440.png", "Dual · 6000×1440"),
+         ("PadelPunto-Court-Dark-3440x1440.png", "Court dark · 3440×1440"), ("PadelPunto-Dual-6000x1440.png", "Dual · 2 monitors"),
          ("PadelPunto-Light-3840x2160.png", "Logo light · 3840×2160"), ("PadelPunto-Court-Light-3440x1440.png", "Court light · 3440×1440"),
-         ("PadelPunto-Dual-Light-6000x1440.png", "Dual light · 6000×1440")]
+         ("PadelPunto-Dual-Light-6000x1440.png", "Dual light · 2 monitors")]
 TW, TH, GAP, LAB = 520, 218, 24, 34
 sheet = Image.new("RGB", (3 * TW + 4 * GAP, 3 * (TH + LAB) + 4 * GAP), INK)
 ds = ImageDraw.Draw(sheet); fs = ImageFont.truetype(F + "Ubuntu-R.ttf", 18)
 for i, (f, label) in enumerate(walls):
     im = Image.open(os.path.join(WP, f)).convert("RGB")
-    if im.width / im.height > 3:      # dual: show it whole, centred on its own colour
-        s = TW / im.width
-        small = im.resize((TW, round(im.height * s)), Image.LANCZOS)
-        im = Image.new("RGB", (TW, TH), small.getpixel((TW // 2, 2)))
-        im.paste(small, (0, (TH - small.height) // 2))
+    x, y = GAP + (i % 3) * (TW + GAP), GAP + (i // 3) * (TH + LAB + GAP)
+    if im.width / im.height > 3:      # dual: shown as the two monitors it is made for (3440 + 2560)
+        split, gap = 3440 * im.width // 6000, 10
+        s = (TW - gap) / im.width
+        h = round(im.height * s); yy = y + (TH - h) // 2
+        for j, part in enumerate((im.crop((0, 0, split, im.height)), im.crop((split, 0, im.width, im.height)))):
+            w = round(part.width * s)
+            m = Image.new("L", (w, h), 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, w - 1, h - 1], 6, fill=255)
+            sheet.paste(part.resize((w, h), Image.LANCZOS), (x + j * (round(split * s) + gap), yy), m)
     else:
         s = max(TW / im.width, TH / im.height)
         im = im.resize((round(im.width * s), round(im.height * s)), Image.LANCZOS)
         im = im.crop(((im.width - TW) // 2, (im.height - TH) // 2, (im.width - TW) // 2 + TW, (im.height - TH) // 2 + TH))
-    x, y = GAP + (i % 3) * (TW + GAP), GAP + (i // 3) * (TH + LAB + GAP)
-    m = Image.new("L", (TW, TH), 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, TW - 1, TH - 1], 12, fill=255)
-    sheet.paste(im, (x, y), m)
+        m = Image.new("L", (TW, TH), 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, TW - 1, TH - 1], 12, fill=255)
+        sheet.paste(im, (x, y), m)
     ds.text((x + 4, y + TH + 8), label, font=fs, fill="#c9cdd1")
 sheet.save(os.path.join(DOCS, "wallpapers.png"), optimize=True); print("wallpapers.png")
 

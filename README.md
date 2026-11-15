@@ -2,266 +2,273 @@
   <img src="docs/banner.png" alt="Padel Punto" width="100%">
 </p>
 
-<h1 align="center">Padel Punto · Desktop-Theme</h1>
+<h1 align="center">Padel Punto · Desktop Theme</h1>
+
+<p align="center"><b>English</b> · <a href="README.de.md">Deutsch</a></p>
 
 <p align="center">
-  <b>Ink-Schwarz trifft Lime.</b> Ein dunkles Komplett-Theme für Linux Mint (Cinnamon):<br>
-  Fenster, Leisten, Dock, Icons, Terminal und Hintergründe in den Farben von Padel Punto.
+  <b>Ink black meets lime.</b> A complete dark theme for Linux Mint (Cinnamon):<br>
+  windows, panels, dock, icons, terminal and wallpapers in the colours of Padel Punto.
 </p>
 
 <p align="center">
   <img alt="Linux Mint" src="https://img.shields.io/badge/Linux_Mint-22_Cinnamon-d4f53c?style=flat-square&labelColor=0b0d0f&logo=linuxmint&logoColor=d4f53c">
   <img alt="GTK" src="https://img.shields.io/badge/GTK-2_%7C_3_%7C_4-d4f53c?style=flat-square&labelColor=0b0d0f">
-  <img alt="Ohne sudo" src="https://img.shields.io/badge/Installation-ohne_sudo-d4f53c?style=flat-square&labelColor=0b0d0f">
-  <img alt="Lizenz" src="https://img.shields.io/badge/Lizenz-GPL--3.0-d4f53c?style=flat-square&labelColor=0b0d0f">
-  <a href="https://github.com/PadelPunto"><img alt="Padel Punto auf GitHub" src="https://img.shields.io/badge/Projekt-Padel_Punto-d4f53c?style=flat-square&labelColor=0b0d0f&logo=github&logoColor=d4f53c"></a>
+  <img alt="No sudo" src="https://img.shields.io/badge/install-no_sudo-d4f53c?style=flat-square&labelColor=0b0d0f">
+  <img alt="License" src="https://img.shields.io/badge/license-GPL--3.0-d4f53c?style=flat-square&labelColor=0b0d0f">
+  <a href="https://github.com/PadelPunto"><img alt="Padel Punto on GitHub" src="https://img.shields.io/badge/project-Padel_Punto-d4f53c?style=flat-square&labelColor=0b0d0f&logo=github&logoColor=d4f53c"></a>
 </p>
 
 <p align="center">
-  <a href="#-installieren">Installieren</a> ·
-  <a href="#-wo-finde-ich-was">Wo finde ich was?</a> ·
-  <a href="#-bilder">Bilder</a> ·
-  <a href="#-hilfe">Hilfe</a> ·
-  <a href="#-entfernen">Entfernen</a>
+  <a href="#-install">Install</a> ·
+  <a href="#-where-to-find-things">Where to find things</a> ·
+  <a href="#-screenshots">Screenshots</a> ·
+  <a href="#-help">Help</a> ·
+  <a href="#-uninstall">Uninstall</a>
 </p>
 
 <p align="center">
-  <img src="docs/desktop.png" alt="Padel Punto Desktop mit Dateimanager und Terminal" width="100%">
+  <img src="docs/desktop.png" alt="Padel Punto desktop with file manager and terminal" width="100%">
 </p>
 
-## ✨ Das ist drin
+## ✨ What's inside
 
 <table>
   <tr>
     <td width="50%" valign="top">
       <h3>🖥️ Theme</h3>
-      Fenster, Menüs, Startmenü, Benachrichtigungen und Alt-Tab in tiefem Ink mit Lime-Akzent.
-      Ausgewählte Einträge bekommen einen schmalen Lime-Balken, die Fensterknöpfe sind bunte Mac-Punkte.
-      Gilt für alte und neue Programme (GTK 2, GTK 3, GTK 4 und libadwaita).
+      Windows, menus, start menu, notifications and Alt-Tab in deep ink with a lime accent.
+      Selected items get a slim lime bar, the window buttons are colourful Mac-style dots.
+      Works for old and new apps alike (GTK 2, GTK 3, GTK 4 and libadwaita).
     </td>
     <td width="50%" valign="top">
       <h3>📁 Icons</h3>
-      Auf Basis von Papirus-Dark: moderne, flache Icons für fast jede App und jeden Dateityp.
-      Die Ordner leuchten in Lime, Musik, Bilder, Downloads & Co. behalten ihre Symbole.
+      Based on Papirus-Dark: modern flat icons for almost every app and file type.
+      Folders glow in lime, while Music, Pictures, Downloads & co. keep their symbols.
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h3>⚓ Dock & obere Leiste</h3>
-      Unten ein Dock mit schwebender Pille und Punkten unter laufenden Programmen.
-      Oben eine schmale Leiste mit Menü, Arbeitsflächen, aktivem Programm und der Uhr
-      mit Lime-Punkt in der Mitte. Deine angehefteten Programme bleiben erhalten.
+      <h3>⚓ Dock & top panel</h3>
+      A dock at the bottom with a floating pill and dots under running apps.
+      A slim top panel with menu, workspaces, active app and a clock with a lime dot
+      in the middle. Your pinned apps are kept.
     </td>
     <td width="50%" valign="top">
-      <h3>⌨️ Terminal, Double Commander & Hintergründe</h3>
-      Ein Terminal-Profil mit Lime-Cursor und abgestimmter Farbpalette,
-      Ink & Lime für Double Commander und vier Padel-Punto-Hintergründe bis 3840×2160.
+      <h3>⌨️ Terminal, Double Commander & wallpapers</h3>
+      A terminal profile with lime cursor and matching palette,
+      ink & lime for Double Commander and four Padel Punto wallpapers up to 3840×2160.
     </td>
   </tr>
 </table>
 
 <p align="center">
-  <img src="docs/leisten.png" alt="Obere Leiste mit Uhr und Dock mit Pille" width="100%">
+  <img src="docs/leisten.png" alt="Top panel with clock and dock with pill" width="100%">
 </p>
 
-## 🚀 Installieren
+## 🚀 Install
 
-> **Voraussetzung:** Linux Mint mit Cinnamon (getestet mit Mint 22.3 und Cinnamon 6.6).
-> Alles landet nur in deinem Benutzerordner, ein Passwort oder `sudo` ist nicht nötig.
+> **Requirements:** Linux Mint with Cinnamon (tested with Mint 22.3 and Cinnamon 6.6).
+> Everything goes into your home folder only, no password or `sudo` needed.
 
-**1. Herunterladen.** Mit git:
+**1. Download.** With git:
 
 ```bash
 git clone https://github.com/fat-toni/PadelPunto-Theme
 cd PadelPunto-Theme
 ```
 
-<sub>Ohne git: oben auf dieser Seite **Code → Download ZIP**, die Datei entpacken,
-den Ordner öffnen, Rechtsklick in eine freie Stelle → **Im Terminal öffnen**.</sub>
+<sub>Without git: click **Code → Download ZIP** at the top of this page, extract it,
+open the folder, right-click an empty spot → **Open in Terminal**.</sub>
 
-**2. Installieren und einschalten:**
+**2. Install and switch it on:**
 
 ```bash
-./install.sh --alles
+./install.sh --all
 ```
 
-**3. Fertig.** Das Theme ist sofort aktiv. Damit wirklich alles umschaltet, auch die Fensterrahmen
-und schon geöffnete Programme, einmal **ab- und wieder anmelden**.
+**3. Done.** The theme is active right away. To make sure everything switches over,
+including window borders and apps that are already open, **log out and back in** once.
 
-Deine bisherigen Einstellungen merkt sich das Skript. `./uninstall.sh` holt sie jederzeit zurück.
+The script remembers your previous settings. `./uninstall.sh` brings them back at any time.
 
 <details>
-<summary><b>Nur einzelne Teile installieren</b></summary>
+<summary><b>Install only some parts</b></summary>
 <br>
 
-Statt `--alles` lassen sich die Teile einzeln wählen und kombinieren:
+Instead of `--all` you can pick and combine the parts:
 
-| Option | Was passiert |
+| Option | What it does |
 |---|---|
-| *(keine)* | Theme und Icons nur kopieren, nichts umschalten. Auswählen dann selbst unter **Systemeinstellungen → Themen** |
-| `--aktivieren` | Theme und Icons einschalten, dunkler Modus für alle Apps, Padel-Punto-Farben auch für neuere GNOME-Apps |
-| `--dock` | obere Leiste (32 px) und Dock (76 px) wie auf den Bildern einrichten |
-| `--terminal` | Terminal-Profil „Padel Punto“ anlegen (mit `--aktivieren` als Standard) |
-| `--doublecmd` | Double Commander in Ink & Lime (Double Commander vorher schließen) |
-| `--flatpak` | Flatpak-Apps dürfen Theme, Icons und Farben lesen (nur Lesezugriff) |
-| `--hintergrund` | Hintergründe kopieren (mit `--aktivieren` passend zur Bildschirmgröße setzen) |
-| `--alles` | alles zusammen |
+| *(none)* | only copy theme and icons, change nothing. Pick them yourself under **System Settings → Themes** |
+| `--activate` | switch theme and icons on, dark mode for all apps, Padel Punto colours for newer GNOME apps too |
+| `--dock` | set up the top panel (32 px) and dock (76 px) as in the screenshots |
+| `--terminal` | add the terminal profile “Padel Punto” (made the default with `--activate`) |
+| `--doublecmd` | ink & lime for Double Commander (close Double Commander first) |
+| `--flatpak` | let Flatpak apps read the theme, icons and colours (read-only) |
+| `--wallpaper` | copy the wallpapers (with `--activate`, set one that fits your screen) |
+| `--all` | all of the above |
 
-Beispiel: nur Theme und Terminal, sofort aktiv:
+Example: only theme and terminal, active right away:
 
 ```bash
-./install.sh --aktivieren --terminal
+./install.sh --activate --terminal
 ```
 
-Wichtig: Bei jedem Aufruf wird das Theme frisch kopiert. Gib deshalb immer **alle** Teile an,
-die du haben willst, sonst fehlt zum Beispiel das Dock-Styling.
+Important: every run copies the theme fresh. So always pass **all** the parts you want,
+otherwise the dock styling, for example, will be missing.
+
+<sub>The German option names (`--alles`, `--aktivieren`, `--hintergrund`) work as well.</sub>
 </details>
 
 <details>
-<summary><b>Aktualisieren</b></summary>
+<summary><b>Update</b></summary>
 <br>
 
 ```bash
 cd PadelPunto-Theme
 git pull
-./install.sh --alles
+./install.sh --all
 ```
 
-Danach einmal ab- und wieder anmelden.
+Then log out and back in once.
 </details>
 
-## 🧭 Wo finde ich was?
+## 🧭 Where to find things
 
-Nach der Installation findest du alles an den gewohnten Stellen in Linux Mint:
+After installing, everything sits in the usual places in Linux Mint:
 
-| Was | Wo |
+| What | Where |
 |---|---|
-| **Theme & Icons** | Systemeinstellungen → **Themen**. Fensterrahmen, Steuerelemente und Desktop: `PadelPunto-Dark`, Symbole: `PadelPunto` |
-| **Hintergründe** | Systemeinstellungen → **Hintergründe** → Ordner `padelpunto` in der linken Liste |
-| **Leiste & Dock** | Rechtsklick auf die Leiste → **Leisteneinstellungen** (Höhe, Symbolgröße, automatisch ausblenden) |
-| **Uhr & aktives Programm** | Systemeinstellungen → **Applets**: „Kalender (Padel Punto)“ und „Aktives Programm (Padel Punto)“ |
-| **Terminal-Profil** | Terminal → Menü → **Einstellungen** → Profil „Padel Punto“ |
-| **Double Commander** | wird direkt umgefärbt, zu finden unter Konfiguration → Optionen → Farben |
+| **Theme & icons** | System Settings → **Themes**. Window borders, Controls and Desktop: `PadelPunto-Dark`, Icons: `PadelPunto` |
+| **Wallpapers** | System Settings → **Backgrounds** → folder `padelpunto` in the list on the left |
+| **Panel & dock** | right-click the panel → **Panel settings** (height, icon size, auto-hide) |
+| **Clock & active app** | System Settings → **Applets**: “Kalender (Padel Punto)” and “Aktives Programm (Padel Punto)” |
+| **Terminal profile** | Terminal → menu → **Preferences** → profile “Padel Punto” |
+| **Double Commander** | recoloured directly, see Configuration → Options → Colors |
 
 <details>
-<summary><b>Wo die Dateien liegen</b></summary>
+<summary><b>Where the files live</b></summary>
 <br>
 
-| Datei | Ort |
+| File | Location |
 |---|---|
 | Theme | `~/.themes/PadelPunto-Dark` |
 | Icons | `~/.local/share/icons/PadelPunto` |
 | Applets | `~/.local/share/cinnamon/applets/` (`kalender@padelpunto`, `aktives-programm@padelpunto`) |
-| Hintergründe | `~/.local/share/backgrounds/padelpunto` |
-| Farben für neuere GNOME-Apps | `~/.config/gtk-4.0/gtk.css` (nur mit `--flatpak` oder ohne Mint-libadwaita) |
-| Gemerkte alte Einstellungen | `~/.local/share/padelpunto-theme/vorher.txt` |
+| Wallpapers | `~/.local/share/backgrounds/padelpunto` |
+| Colours for newer GNOME apps | `~/.config/gtk-4.0/gtk.css` (only with `--flatpak` or without Mint's libadwaita) |
+| Saved previous settings | `~/.local/share/padelpunto-theme/vorher.txt` |
 </details>
 
-## 📸 Bilder
+## 📸 Screenshots
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/startmenue.png" alt="Startmenü"></td>
-    <td width="50%"><img src="docs/kalender.png" alt="Kalender"></td>
+    <td width="50%"><img src="docs/startmenue.png" alt="Start menu"></td>
+    <td width="50%"><img src="docs/kalender.png" alt="Calendar"></td>
   </tr>
   <tr>
-    <td align="center"><b>Startmenü</b><br><sub>Lime-Balken an der gewählten Kategorie, Suche mit Lime-Rahmen</sub></td>
-    <td align="center"><b>Kalender</b><br><sub>Heute in Lime, alles andere ruhig</sub></td>
+    <td align="center"><b>Start menu</b><br><sub>Lime bar on the selected category, search with lime border</sub></td>
+    <td align="center"><b>Calendar</b><br><sub>Today in lime, everything else calm</sub></td>
   </tr>
   <tr>
-    <td width="50%"><img src="docs/dateimanager.png" alt="Dateimanager"></td>
+    <td width="50%"><img src="docs/dateimanager.png" alt="File manager"></td>
     <td width="50%"><img src="docs/terminal.png" alt="Terminal"></td>
   </tr>
   <tr>
-    <td align="center"><b>Dateimanager</b><br><sub>Lime-Ordner, Papirus-Icons, dunkle Seitenleiste</sub></td>
-    <td align="center"><b>Terminal</b><br><sub>Profil „Padel Punto“ mit eigener Palette</sub></td>
+    <td align="center"><b>File manager</b><br><sub>Lime folders, Papirus icons, dark sidebar</sub></td>
+    <td align="center"><b>Terminal</b><br><sub>Profile “Padel Punto” with its own palette</sub></td>
   </tr>
 </table>
 
-### 🎨 Farben
+<sub>The screenshots show a German desktop, the theme works with any language.</sub>
+
+### 🎨 Colours
 
 <p align="center">
-  <img src="docs/farben.png" alt="Farbpalette" width="100%">
+  <img src="docs/farben.png" alt="Colour palette" width="100%">
 </p>
 
-Dieselben Farben wie in der Padel-Punto-App: Lime `#d4f53c` als einziger Akzent, alles andere in abgestuftem Ink.
+The same colours as in the Padel Punto app: lime `#d4f53c` as the only accent, everything else in shades of ink.
 
-## 🛟 Hilfe
+## 🛟 Help
 
 <details>
-<summary><b>Die Fensterrahmen sehen noch alt aus</b></summary>
+<summary><b>Window borders still look old</b></summary>
 <br>
-Cinnamon merkt sich die Rahmen bereits offener Fenster. Einmal ab- und wieder anmelden
-oder Cinnamon neu laden mit <kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>Esc</kbd>.
+Cinnamon caches the borders of windows that are already open. Log out and back in,
+or reload Cinnamon with <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Esc</kbd>.
 </details>
 
 <details>
-<summary><b>Flatpak-Apps bleiben hell</b></summary>
+<summary><b>Websites or apps stay light</b></summary>
 <br>
-Mit <code>--flatpak</code> installieren (steckt in <code>--alles</code>) und die App danach neu starten.
-Flatpak-Apps dürfen sonst nicht auf das Theme in deinem Benutzerordner zugreifen.
+<code>--activate</code> (part of <code>--all</code>) turns on Mint's dark mode preference, which browsers,
+websites and Electron apps follow. You can also find it under System Settings → Themes → “Prefer dark mode”.
+For Flatpak apps also install with <code>--flatpak</code> and restart the app.
 </details>
 
 <details>
-<summary><b>Das Dock ist zu groß oder zu klein</b></summary>
+<summary><b>The dock is too big or too small</b></summary>
 <br>
-Rechtsklick auf das Dock → <b>Leisteneinstellungen</b>. Passend zur Pille sind 76 px Höhe
-und 60 px Symbolgröße in der Mitte. Andere Werte gehen auch, die Pille wächst mit.
+Right-click the dock → <b>Panel settings</b>. The pill fits best with 76 px height
+and 60 px icon size in the centre zone. Other sizes work too, the pill grows with them.
 </details>
 
 <details>
-<summary><b>„Double Commander läuft noch“</b></summary>
+<summary><b>“Double Commander läuft noch” (still running)</b></summary>
 <br>
-Double Commander schreibt seine Einstellungen beim Beenden zurück. Erst schließen, dann
-<code>python3 tools/doublecmd_farben.py</code> ausführen (oder <code>install.sh</code> noch einmal).
+Double Commander writes its settings back when it quits. Close it first, then run
+<code>python3 tools/doublecmd_farben.py</code> (or <code>install.sh</code> again).
 </details>
 
 <details>
-<summary><b>Ich will meine alten Leisten zurück</b></summary>
+<summary><b>I want my old panels back</b></summary>
 <br>
-<code>./uninstall.sh</code> stellt Leisten, Applets, Theme, Icons und Hintergrund so her,
-wie sie vor der ersten Installation waren.
+<code>./uninstall.sh</code> restores panels, applets, theme, icons and wallpaper
+as they were before the first install.
 </details>
 
-## 🧹 Entfernen
+## 🧹 Uninstall
 
 ```bash
 ./uninstall.sh
 ```
 
-Stellt deine vorherigen Einstellungen wieder her und löscht alle installierten Dateien.
+Restores your previous settings and removes all installed files.
 
 <details>
-<summary><b>🔧 Selbst bauen</b></summary>
+<summary><b>🔧 Build it yourself</b></summary>
 <br>
 
-`themes/` und `icons/` liegen fertig gebaut im Repo. Neu bauen lässt sich alles mit:
+`themes/` and `icons/` are included ready-built. To rebuild everything:
 
 ```bash
 ./build.sh
 ```
 
-Die einzelnen Schritte stecken in `tools/`:
+The individual steps live in `tools/`:
 
-| Skript | Aufgabe |
+| Script | Job |
 |---|---|
-| `padelpunto_theme.py` | baut das Theme aus Mint-Y-Dark: Mint-Grün → Lime, Grautöne → Ink, Text auf Lime wird Ink, Auswahl mit Lime-Balken, Mac-Punkte als Fensterknöpfe |
-| `lime_ordner_papirus.py` | Papirus-Ordner in Lime umfärben |
-| `leisten.py` | richtet obere Leiste und Dock ein, installiert die Applets „Aktives Programm“ und „Kalender (Padel Punto)“ |
-| `doublecmd_farben.py` | Farben für Double Commander setzen (`--zurueck` stellt sie wieder her) |
-| `readme_bilder.py` | die Bilder für diese Seite |
+| `padelpunto_theme.py` | builds the theme from Mint-Y-Dark: Mint green → lime, greys → ink, text on lime becomes ink, selection with lime bar, Mac-style window buttons |
+| `lime_ordner_papirus.py` | recolours the Papirus folders to lime |
+| `leisten.py` | sets up top panel and dock, installs the applets “Aktives Programm” and “Kalender (Padel Punto)” |
+| `doublecmd_farben.py` | sets the Double Commander colours (`--restore` brings the old ones back) |
+| `readme_bilder.py` | the images for this page |
 
-Benötigt Python 3, Pillow und die Pakete `mint-themes` und `papirus-icon-theme` (auf Linux Mint vorinstalliert).
+Needs Python 3, Pillow and the packages `mint-themes` and `papirus-icon-theme` (preinstalled on Linux Mint).
 </details>
 
 ## 🎾 Padel Punto
 
-Das Theme gehört zu **[Padel Punto](https://github.com/PadelPunto)**, dem Punktezähler für Padel.
-Am Handgelenk zählt die Uhr-App mit: **[watch-zepp](https://github.com/PadelPunto/watch-zepp)** für Amazfit-Uhren (Zepp OS).
+This theme belongs to **[Padel Punto](https://github.com/PadelPunto)**, the score counter for padel.
+On your wrist the watch app keeps score: **[watch-zepp](https://github.com/PadelPunto/watch-zepp)** for Amazfit watches (Zepp OS).
 
-## 📄 Lizenz
+## 📄 License
 
-GPL-3.0, siehe [LICENSE](LICENSE). Danke an die Projekte, auf denen dieses Theme aufbaut:
+GPL-3.0, see [LICENSE](LICENSE). Thanks to the projects this theme builds on:
 [CREDITS.md](CREDITS.md).
 
-<p align="center"><br><sub>Gemacht für den Court und für den Schreibtisch danach. 🎾</sub></p>
+<p align="center"><br><sub>Made for the court, and for the desk afterwards. 🎾</sub></p>

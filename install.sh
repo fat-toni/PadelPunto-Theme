@@ -1,24 +1,25 @@
 #!/usr/bin/env bash
 # Padel Punto Desktop-Theme installieren (nur für den eigenen Benutzer, kein sudo nötig).
-#   ./install.sh               Theme + Icons kopieren
-#   ./install.sh --aktivieren  … und direkt einschalten (alte Einstellungen werden gemerkt)
-#   ./install.sh --alles       Theme, Icons, Dock, Terminal, Double Commander, Flatpak, Hintergründe – und einschalten
-# Einzeln: --dock (Dock + obere Leiste)  --terminal  --doublecmd  --flatpak  --hintergrund
+# Install the Padel Punto desktop theme (current user only, no sudo needed).
+#   ./install.sh                         Theme + Icons kopieren / copy theme + icons
+#   ./install.sh --activate|--aktivieren … und einschalten / … and switch it on (old settings are saved)
+#   ./install.sh --all|--alles           alles + einschalten / everything + switch on
+# Einzeln / single parts:  --dock  --terminal  --doublecmd  --flatpak  --wallpaper|--hintergrund
 set -euo pipefail
 cd "$(dirname "$(readlink -f "$0")")"
 
 AKTIV=0 DOCK=0 TERMINAL=0 DC=0 FP=0 HG=0
 for a in "$@"; do
   case "$a" in
-    --aktivieren) AKTIV=1 ;;
+    --aktivieren|--activate) AKTIV=1 ;;
     --dock) DOCK=1 ;;
     --terminal) TERMINAL=1 ;;
     --doublecmd) DC=1 ;;
     --flatpak) FP=1 ;;
-    --hintergrund) HG=1 ;;
-    --alles) AKTIV=1 DOCK=1 TERMINAL=1 DC=1 FP=1 HG=1 ;;
-    -h|--hilfe|--help) sed -n '2,6p' "$0"; exit 0 ;;
-    *) echo "Unbekannte Option: $a (siehe --hilfe)"; exit 1 ;;
+    --hintergrund|--wallpaper) HG=1 ;;
+    --alles|--all) AKTIV=1 DOCK=1 TERMINAL=1 DC=1 FP=1 HG=1 ;;
+    -h|--hilfe|--help) sed -n '2,7p' "$0" | cut -c3-; exit 0 ;;
+    *) echo "Unbekannte Option / unknown option: $a (--help)"; exit 1 ;;
   esac
 done
 

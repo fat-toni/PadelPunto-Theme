@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Padel-Punto-Farben für Double Commander (Dateilisten, Pfadleiste, Menüs).
 
-  python3 doublecmd_farben.py [--zurueck]
+  python3 doublecmd_farben.py [--zurueck | --restore]
 
 Double Commander muss geschlossen sein (er schreibt seine Einstellungen beim
 Beenden zurück). Vor der ersten Änderung werden colors.json und doublecmd.xml
@@ -71,7 +71,7 @@ def doublecmd_xml(t):
 def main():
     if subprocess.run(['pgrep', '-x', 'doublecmd'], capture_output=True).returncode == 0:
         sys.exit('Double Commander läuft noch – bitte erst schließen.')
-    if '--zurueck' in sys.argv:
+    if '--zurueck' in sys.argv or '--restore' in sys.argv:
         for n in DATEIEN:
             b = CFG / f'{n}.vor-padelpunto'
             if b.exists():

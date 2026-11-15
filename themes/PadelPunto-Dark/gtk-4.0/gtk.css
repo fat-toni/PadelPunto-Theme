@@ -1500,7 +1500,7 @@ treeview.view {
       color: #f2fcc4; }
       columnview.view.expander:selected:hover,
       treeview.view.expander:selected:hover {
-        color: #FFFFFF; }
+        color: #0b0d0f; }
     columnview.view.expander:checked,
     treeview.view.expander:checked {
       -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
@@ -2462,7 +2462,7 @@ row.activatable:disabled {
     color: inherit; }
 
 row.activatable:selected:active {
-  color: #FFFFFF; }
+  color: #0b0d0f; }
 
 row.activatable:selected.has-open-popup, row.activatable:selected:hover {
   background-color: #bfdc36; }
@@ -2852,7 +2852,7 @@ row:selected button.flat, infobar.info button.flat, infobar.question button.flat
   color: #FFFFFF;
   background-color: rgba(255, 255, 255, 0); }
   headerbar.selection-mode button:disabled, headerbar.selection-mode button:disabled label, row:selected button.flat:disabled, infobar.info button.flat:disabled, infobar.question button.flat:disabled, infobar.warning button.flat:disabled, infobar.error button.flat:disabled, row:selected button.flat:disabled label, infobar.info button.flat:disabled label, infobar.question button.flat:disabled label, infobar.warning button.flat:disabled label, infobar.error button.flat:disabled label {
-    color: rgba(255, 255, 255, 0.4); }
+    color: rgba(11, 13, 15, 0.4); }
 
 row:selected button:hover, infobar.info button:hover, infobar.question button:hover, infobar.warning button:hover, infobar.error button:hover {
   color: #FFFFFF;
@@ -2868,7 +2868,7 @@ row:selected button:disabled, infobar.info button:disabled, infobar.question but
   background-color: rgba(255, 255, 255, 0);
   border-color: rgba(255, 255, 255, 0.4); }
   row:selected button:disabled, infobar.info button:disabled, infobar.question button:disabled, infobar.warning button:disabled, infobar.error button:disabled, row:selected button:disabled label, infobar.info button:disabled label, infobar.question button:disabled label, infobar.warning button:disabled label, infobar.error button:disabled label {
-    color: rgba(255, 255, 255, 0.5); }
+    color: rgba(11, 13, 15, 0.5); }
   headerbar.selection-mode button:disabled:checked, headerbar.selection-mode button:disabled:active, row:selected button:disabled:active, infobar.info button:disabled:active, infobar.question button:disabled:active, infobar.warning button:disabled:active, infobar.error button:disabled:active, row:selected button:disabled:checked, infobar.info button:disabled:checked, infobar.question button:disabled:checked, infobar.warning button:disabled:checked, infobar.error button:disabled:checked {
     color: #d4f53c;
     background-color: rgba(255, 255, 255, 0.5);
@@ -3041,7 +3041,7 @@ treeview.view:selected:focus, row:selected, calendar > grid > label.today, calen
   entry > text > selection, spinbutton text > text > selection, columnview.view:selected, columnview.view:selected:focus,
   treeview.view:selected,
   treeview.view:selected:focus, row:selected, calendar > grid > label.today, calendar > grid > label.today:selected, calendar > grid > label.today:focus {
-    color: #FFFFFF; }
+    color: #0b0d0f; }
     label:disabled > selection, row:selected label:disabled, label:disabled:selected, .view:disabled:selected,
     textview > text:disabled:selected,
     textview > text:disabled:selected:focus, textview > text > selection:disabled, iconview:disabled:selected, iconview:disabled:selected:focus, flowbox > flowboxchild:disabled:selected, gridview > child:disabled:selected,
@@ -3225,6 +3225,15 @@ placessidebar.sidebar row:selected, stacksidebar.sidebar row:selected, list.navi
 }
 placessidebar.sidebar row:selected label, placessidebar.sidebar row:selected image,
 stacksidebar.sidebar row:selected label { color: #d4f53c; }
+
+/* Suggested action (Save, OK …): lime with ink, like every other accent */
+button.suggested-action, headerbar button.suggested-action, .primary-toolbar button.suggested-action {
+  color: #0b0d0f; background-color: #d4f53c; background-image: none; border-color: rgba(0, 0, 0, 0.12); text-shadow: none;
+}
+button.suggested-action:hover, headerbar button.suggested-action:hover { color: #0b0d0f; background-color: #ddf75e; background-image: none; }
+button.suggested-action:active, button.suggested-action:checked { color: #0b0d0f; background-color: #c2e02c; background-image: none; }
+button.suggested-action:disabled { color: rgba(11, 13, 15, 0.4); background-color: rgba(212, 245, 60, 0.45); }
+button.suggested-action label { color: inherit; }
 
 /* Tooltips dark like the menus (Mint-Y: accent fill with white text, unreadable on lime) */
 tooltip.background { background-color: rgba(35, 40, 45, 0.97); border: 1px solid rgba(255, 255, 255, 0.1); }

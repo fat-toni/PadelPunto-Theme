@@ -7,7 +7,7 @@
 <p align="center"><a href="README.md">English</a> · <b>Deutsch</b></p>
 
 <p align="center">
-  <b>Ink-Schwarz trifft Lime.</b> Ein dunkles Komplett-Theme für Linux Mint (Cinnamon):<br>
+  <b>Ink-Schwarz trifft Lime.</b> Ein Komplett-Theme für Linux Mint (Cinnamon), dunkel oder hell:<br>
   Fenster, Leisten, Dock, Icons, Terminal und Hintergründe in den Farben von Padel Punto.
 </p>
 
@@ -20,6 +20,7 @@
 </p>
 
 <p align="center">
+  <a href="#-dunkel--hell">Dunkel & hell</a> ·
   <a href="#-installieren">Installieren</a> ·
   <a href="#-wo-finde-ich-was">Wo finde ich was?</a> ·
   <a href="#-bilder">Bilder</a> ·
@@ -37,13 +38,13 @@
   <tr>
     <td width="50%" valign="top">
       <h3>🖥️ Theme</h3>
-      Fenster, Menüs, Startmenü, Benachrichtigungen und Alt-Tab in tiefem Ink mit Lime-Akzent.
+      Fenster, Menüs, Startmenü, Benachrichtigungen und Alt-Tab in tiefem Ink (oder hellem Weiß) mit Lime-Akzent.
       Ausgewählte Einträge bekommen einen schmalen Lime-Balken, die Fensterknöpfe sind bunte Mac-Punkte.
       Gilt für alte und neue Programme (GTK 2, GTK 3, GTK 4 und libadwaita).
     </td>
     <td width="50%" valign="top">
       <h3>📁 Icons</h3>
-      Auf Basis von Papirus-Dark: moderne, flache Icons für fast jede App und jeden Dateityp.
+      Auf Basis von Papirus (Dark / Light): moderne, flache Icons für fast jede App und jeden Dateityp.
       Die Ordner leuchten in Lime, Musik, Bilder, Downloads & Co. behalten ihre Symbole.
     </td>
   </tr>
@@ -59,13 +60,36 @@
     <td width="50%" valign="top">
       <h3>⌨️ Terminal, Double Commander & Hintergründe</h3>
       Ein Terminal-Profil mit Lime-Cursor und abgestimmter Farbpalette,
-      Ink & Lime für Double Commander und vier Padel-Punto-Hintergründe bis 3840×2160.
+      Ink & Lime für Double Commander und neun Padel-Punto-Hintergründe, dunkel und hell,
+      bis 3840×2160 – und einen, der über zwei Bildschirme reicht.
     </td>
   </tr>
 </table>
 
 <p align="center">
   <img src="docs/panels.png" alt="Obere Leiste mit Uhr und Dock mit Pille" width="100%">
+</p>
+
+## 🌗 Dunkel & hell
+
+<p align="center">
+  <img src="docs/dark-light.png" alt="Die dunkle und die helle Variante nebeneinander" width="100%">
+</p>
+
+Beide Varianten werden immer installiert. Du wählst, welche eingeschaltet ist, und wechselst
+jederzeit mit einem Befehl – Leisten, Dock, Terminal, Double Commander und Hintergrund ziehen mit:
+
+```bash
+./install.sh --hell      # auf hell umschalten
+./install.sh --dunkel    # zurück zu dunkel
+```
+
+Die Wahl wird gemerkt, spätere Updates behalten sie. In der hellen Variante bleibt Lime die Farbe
+für Flächen (Auswahl, Schalter, heute im Kalender); Schrift und Linien bekommen ein tieferes Lime
+`#557000`, das auf Weiß gut lesbar bleibt.
+
+<p align="center">
+  <img src="docs/desktop-light.png" alt="Die helle Variante mit Dateimanager und Terminal" width="100%">
 </p>
 
 ## 🚀 Installieren
@@ -84,10 +108,11 @@ cd PadelPunto-Theme
 <sub>Ohne git: oben auf dieser Seite **Code → Download ZIP**, die Datei entpacken,
 den Ordner öffnen, Rechtsklick in eine freie Stelle → **Im Terminal öffnen**.</sub>
 
-**2. Installieren und einschalten:**
+**2. Installieren und einschalten** – dunkel oder hell:
 
 ```bash
-./install.sh --alles
+./install.sh --alles          # dunkel
+./install.sh --alles --hell   # hell
 ```
 
 **3. Fertig.** Das Theme ist sofort aktiv. Damit wirklich alles umschaltet, auch die Fensterrahmen
@@ -103,14 +128,15 @@ Statt `--alles` lassen sich die Teile einzeln wählen und kombinieren:
 
 | Option | Was passiert |
 |---|---|
-| *(keine)* | Theme und Icons nur kopieren, nichts umschalten. Auswählen dann selbst unter **Systemeinstellungen → Themen** |
-| `--aktivieren` | Theme und Icons einschalten, dunkler Modus für alle Apps, Padel-Punto-Farben auch für neuere GNOME-Apps |
+| *(keine)* | beim ersten Mal: Themes und Icons nur kopieren, nichts umschalten. Auswählen dann selbst unter **Systemeinstellungen → Themen**. Später: Update mit deiner bisherigen Auswahl |
+| `--aktivieren` | Theme und Icons einschalten, dunkler (oder heller) Modus für alle Apps, Padel-Punto-Farben auch für neuere GNOME-Apps |
 | `--dock` | obere Leiste (32 px) und Dock (76 px) wie auf den Bildern einrichten |
-| `--terminal` | Terminal-Profil „Padel Punto“ anlegen (mit `--aktivieren` als Standard) |
+| `--terminal` | Terminal-Profile „Padel Punto“ und „Padel Punto Light“ anlegen (das passende wird mit `--aktivieren` Standard) |
 | `--doublecmd` | Double Commander in Ink & Lime (ist er offen, bittet das Skript dich, ihn zu schließen) |
 | `--flatpak` | Flatpak-Apps dürfen Theme, Icons und Farben lesen (nur Lesezugriff) |
-| `--hintergrund` | Hintergründe kopieren (mit `--aktivieren` passend zur Bildschirmgröße setzen) |
+| `--hintergrund` | Hintergründe kopieren (mit `--aktivieren` passend zur Bildschirmgröße setzen; bei zwei Bildschirmen reicht ein Bild über beide) |
 | `--alles` | alles zusammen |
+| `--hell` / `--dunkel` | welche Variante eingeschaltet wird (Standard: dunkel, danach gemerkt) |
 
 Beispiel: nur Theme und Terminal, sofort aktiv:
 
@@ -120,6 +146,8 @@ Beispiel: nur Theme und Terminal, sofort aktiv:
 
 Teile kannst du jederzeit nachinstallieren, z. B. `./install.sh --hintergrund`.
 Alles, was du vorher installiert hast, bleibt erhalten.
+
+<sub>Die englischen Namen (`--all`, `--activate`, `--wallpaper`, `--light`, `--dark`) gehen genauso.</sub>
 </details>
 
 <details>
@@ -129,9 +157,10 @@ Alles, was du vorher installiert hast, bleibt erhalten.
 ```bash
 cd PadelPunto-Theme
 git pull
-./install.sh --alles
+./install.sh
 ```
 
+Ohne Optionen wiederholt das Skript deine bisherige Auswahl (Teile und Variante).
 Danach einmal ab- und wieder anmelden.
 </details>
 
@@ -141,11 +170,11 @@ Nach der Installation findest du alles an den gewohnten Stellen in Linux Mint:
 
 | Was | Wo |
 |---|---|
-| **Theme & Icons** | Systemeinstellungen → **Themen**. Fensterrahmen, Steuerelemente und Desktop: `PadelPunto-Dark`, Symbole: `PadelPunto` |
+| **Theme & Icons** | Systemeinstellungen → **Themen**. Fensterrahmen, Steuerelemente und Desktop: `PadelPunto-Dark` oder `PadelPunto-Light`, Symbole: `PadelPunto` oder `PadelPunto-Light` |
 | **Hintergründe** | Systemeinstellungen → **Hintergründe** → Ordner `padelpunto` in der linken Liste |
 | **Leiste & Dock** | Rechtsklick auf die Leiste → **Leisteneinstellungen** (Höhe, Symbolgröße, automatisch ausblenden) |
 | **Uhr & aktives Programm** | Systemeinstellungen → **Applets**: „Calendar (Padel Punto)“ und „Active app (Padel Punto)“ |
-| **Terminal-Profil** | Terminal → Menü → **Einstellungen** → Profil „Padel Punto“ |
+| **Terminal-Profil** | Terminal → Menü → **Einstellungen** → Profil „Padel Punto“ oder „Padel Punto Light“ |
 | **Double Commander** | wird direkt umgefärbt, zu finden unter Konfiguration → Optionen → Farben |
 
 <details>
@@ -154,12 +183,13 @@ Nach der Installation findest du alles an den gewohnten Stellen in Linux Mint:
 
 | Datei | Ort |
 |---|---|
-| Theme | `~/.themes/PadelPunto-Dark` |
-| Icons | `~/.local/share/icons/PadelPunto` |
+| Themes | `~/.themes/PadelPunto-Dark`, `~/.themes/PadelPunto-Light` |
+| Icons | `~/.local/share/icons/PadelPunto`, `~/.local/share/icons/PadelPunto-Light` |
 | Applets | `~/.local/share/cinnamon/applets/` (`calendar@padelpunto`, `active-app@padelpunto`) |
 | Hintergründe | `~/.local/share/backgrounds/padelpunto` |
 | Farben für neuere GNOME-Apps | `~/.config/gtk-4.0/gtk.css` (nur mit `--flatpak` oder ohne Mint-libadwaita) |
 | Gemerkte alte Einstellungen | `~/.local/share/padelpunto-theme/previous.txt` |
+| Deine Auswahl (Teile, Variante) | `~/.local/share/padelpunto-theme/parts` |
 </details>
 
 ## 📸 Bilder
@@ -181,7 +211,33 @@ Nach der Installation findest du alles an den gewohnten Stellen in Linux Mint:
     <td align="center"><b>Dateimanager</b><br><sub>Lime-Ordner, Papirus-Icons, dunkle Seitenleiste</sub></td>
     <td align="center"><b>Terminal</b><br><sub>Profil „Padel Punto“ mit eigener Palette</sub></td>
   </tr>
+  <tr>
+    <td width="50%"><img src="docs/file-manager-light.png" alt="Dateimanager, hell"></td>
+    <td width="50%"><img src="docs/terminal-light.png" alt="Terminal, hell"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Dateimanager · hell</b><br><sub>Dieselben Lime-Ordner auf Weiß, sanfte Lime-Auswahl</sub></td>
+    <td align="center"><b>Terminal · hell</b><br><sub>Profil „Padel Punto Light“, Farben für Weiß abgestimmt</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/start-menu-light.png" alt="Startmenü, hell"></td>
+    <td width="50%"><img src="docs/panels.png" alt="Obere Leiste und Dock"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Startmenü · hell</b><br><sub>Sanfte Lime-Markierung mit tieferem Lime-Balken</sub></td>
+    <td align="center"><b>Obere Leiste & Dock</b><br><sub>Arbeitsflächen als Zahlen, die aktive als Lime-Pille</sub></td>
+  </tr>
 </table>
+
+### 🖼️ Hintergründe
+
+<p align="center">
+  <img src="docs/wallpapers.png" alt="Alle Hintergründe" width="100%">
+</p>
+
+`--hintergrund` kopiert alle und wählt beim Einschalten den passenden: den Court für Ultrawide-Bildschirme,
+das Logo für 16:9 – jeweils in der gewählten Variante. Bei zwei Bildschirmen reicht das Dual-Bild
+über beide, der Ball fliegt von einem Bildschirm zum anderen.
 
 ### 🎨 Farben
 
@@ -190,6 +246,7 @@ Nach der Installation findest du alles an den gewohnten Stellen in Linux Mint:
 </p>
 
 Dieselben Farben wie in der Padel-Punto-App: Lime `#d4f53c` als einziger Akzent, alles andere in abgestuftem Ink.
+Die helle Variante nutzt weiße Flächen und Ink-Schrift, für Schrift und Linien das tiefere Lime `#557000`.
 
 ## 🛟 Hilfe
 
@@ -201,10 +258,11 @@ oder Cinnamon neu laden mit <kbd>Strg</kbd> + <kbd>Alt</kbd> + <kbd>Esc</kbd>.
 </details>
 
 <details>
-<summary><b>Webseiten oder Apps bleiben hell</b></summary>
+<summary><b>Webseiten oder Apps folgen nicht dunkel / hell</b></summary>
 <br>
-<code>--aktivieren</code> (steckt in <code>--alles</code>) schaltet in Mint „Dunklen Modus bevorzugen“ ein, danach richten
+<code>--aktivieren</code> (steckt in <code>--alles</code>) setzt in Mint den dunklen bzw. hellen Modus, danach richten
 sich Browser, Webseiten und Electron-Apps. Der Schalter liegt auch unter Systemeinstellungen → Themen.
+Schon geöffnete Apps brauchen eventuell einen Neustart.
 Für Flatpak-Apps zusätzlich mit <code>--flatpak</code> installieren und die App neu starten.
 </details>
 
@@ -252,8 +310,8 @@ Die einzelnen Schritte stecken in `tools/`:
 
 | Skript | Aufgabe |
 |---|---|
-| `padelpunto_theme.py` | baut das Theme aus Mint-Y-Dark: Mint-Grün → Lime, Grautöne → Ink, Text auf Lime wird Ink, Auswahl mit Lime-Balken, Mac-Punkte als Fensterknöpfe |
-| `papirus_lime_folders.py` | Papirus-Ordner in Lime umfärben |
+| `padelpunto_theme.py` | baut die Themes aus Mint-Y-Dark und Mint-Y: Mint-Grün → Lime (hell: tieferes Lime für Schrift und Linien), Grautöne → Ink, Text auf Lime wird Ink, Auswahl mit Lime-Balken, Mac-Punkte als Fensterknöpfe |
+| `papirus_lime_folders.py` | Papirus-Ordner in Lime umfärben (das helle Icon-Theme verweist auf dieselben Ordner) |
 | `panels.py` | richtet obere Leiste und Dock ein, installiert die Applets „Active app“ und „Calendar (Padel Punto)“ |
 | `doublecmd_colors.py` | Farben für Double Commander setzen (`--restore` stellt sie wieder her) |
 | `readme_images.py` | die Bilder für diese Seite |

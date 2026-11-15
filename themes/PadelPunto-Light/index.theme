@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=PadelPunto-Light
+Comment=Padel Punto – light theme with a lime accent (based on Mint-Y)
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=PadelPunto-Light
+MetacityTheme=PadelPunto-Light
+IconTheme=PadelPunto-Light
+CursorTheme=Bibata-Modern-Classic
+ButtonLayout=:minimize,maximize,close

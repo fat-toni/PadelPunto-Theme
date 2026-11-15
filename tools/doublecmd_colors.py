@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Padel Punto colors for Double Commander (file lists, path bar, menus).
 
-  python3 doublecmd_colors.py [--restore]
+  python3 doublecmd_colors.py [--light] [--restore]
+
+--light: colors for the light theme (white lists, ink text, lime marks)
 
 Double Commander must be closed (it writes its settings back when it quits).
 Before the first change colors.json and doublecmd.xml are backed up as
@@ -17,9 +19,17 @@ CFG = Path.home() / '.config/doublecmd'
 FILES = ('colors.json', 'doublecmd.xml')
 BACKUP, OLD_BACKUP = 'before-padelpunto', 'vor-padelpunto'   # older versions used the German name
 
-INK, SURFACE, SIDEBAR = '#0b0d0f', '#15181b', '#0f1214'
-LINE, RAISED, HOVER = '#1c2024', '#23282d', '#2b3137'
-TEXT, DIM, LIME, RED = '#e6e8ea', '#8b939b', '#d4f53c', '#f44336'
+LIGHT = '--light' in sys.argv
+if LIGHT:   # INK = list background, LIME = marked files (must be readable as text on white)
+    INK, SURFACE, SIDEBAR = '#ffffff', '#f8f8f9', '#eef0f2'
+    LINE, RAISED, HOVER = '#eef0f2', '#e6f8a0', '#e3e6e9'
+    TEXT, DIM, LIME, RED = '#1c2024', '#6b737b', '#557000', '#c62828'
+    CURSOR_TEXT, INACTIVE_MARK, UNSELECTABLE = '#0b0d0f', '#7d8f3a', '#a8aeb4'
+else:
+    INK, SURFACE, SIDEBAR = '#0b0d0f', '#15181b', '#0f1214'
+    LINE, RAISED, HOVER = '#1c2024', '#23282d', '#2b3137'
+    TEXT, DIM, LIME, RED = '#e6e8ea', '#8b939b', '#d4f53c', '#f44336'
+    CURSOR_TEXT, INACTIVE_MARK, UNSELECTABLE = '#ffffff', '#9fb82d', '#5a6168'
 
 
 def lz(hexc):
@@ -29,20 +39,20 @@ def lz(hexc):
 
 
 FILEPANEL = dict(ForeColor=TEXT, BackColor=INK, BackColor2=INK, MarkColor=LIME,
-                 CursorColor=RAISED, CursorText='#ffffff', CursorBorderColor=LIME,
-                 GridLine=LINE, InactiveCursorColor=LINE, InactiveMarkColor='#9fb82d')
+                 CursorColor=RAISED, CursorText=CURSOR_TEXT, CursorBorderColor=LIME,
+                 GridLine=LINE, InactiveCursorColor=LINE, InactiveMarkColor=INACTIVE_MARK)
 COLUMN = dict(TextColor=TEXT, Background=INK, Background2=INK, MarkColor=LIME,
-              CursorColor=RAISED, CursorText='#ffffff', InactiveCursorColor=LINE,
-              InactiveMarkColor='#9fb82d', CursorBorderColor=LIME)
+              CursorColor=RAISED, CursorText=CURSOR_TEXT, InactiveCursorColor=LINE,
+              InactiveMarkColor=INACTIVE_MARK, CursorBorderColor=LIME)
 BLOCKS = {
     'FilePanel': FILEPANEL,
     'FreeSpaceIndicator': dict(ForeColor=LIME, BackColor=RAISED, ThresholdForeColor=RED),
     'Path': dict(ActiveColor=LINE, ActiveFontColor=LIME, InactiveColor=INK, InactiveFontColor=DIM),
     'TreeViewMenu': dict(BackgroundColor=SURFACE, ShortcutColor=LIME, NormalTextColor=TEXT,
-                         SecondaryTextColor=DIM, FoundTextColor=LIME, UnselectableTextColor='#5a6168',
-                         CursorColor=RAISED, ShortcutUnderCursor=LIME, NormalTextUnderCursor='#ffffff',
+                         SecondaryTextColor=DIM, FoundTextColor=LIME, UnselectableTextColor=UNSELECTABLE,
+                         CursorColor=RAISED, ShortcutUnderCursor=LIME, NormalTextUnderCursor=CURSOR_TEXT,
                          SecondaryTextUnderCursor=DIM, FoundTextUnderCursor=LIME,
-                         UnselectableUnderCursor='#5a6168'),
+                         UnselectableUnderCursor=UNSELECTABLE),
     'Viewer': dict(ImageBackColor1=INK, BookBackgroundColor=INK, BookFontColor=TEXT),
 }
 

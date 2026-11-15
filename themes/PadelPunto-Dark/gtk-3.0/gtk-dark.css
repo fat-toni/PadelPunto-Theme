@@ -1411,7 +1411,7 @@ treeview.view {
     treeview.view.expander:selected {
       color: #f2fcc4; }
       treeview.view.expander:selected:hover {
-        color: #FFFFFF; }
+        color: #0b0d0f; }
     treeview.view.expander:checked {
       -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
   treeview.view.progressbar, treeview.view.progressbar:focus {
@@ -2397,7 +2397,7 @@ row.activatable:disabled {
     color: inherit; }
 
 row.activatable:selected:active {
-  color: #FFFFFF; }
+  color: #0b0d0f; }
 
 row.activatable:selected.has-open-popup, row.activatable:selected:hover {
   background-color: #bfdc36; }
@@ -2587,7 +2587,7 @@ placessidebar row {
     placessidebar row:drop(active):not(:disabled):selected {
       background-color: #d4f53c; }
       placessidebar row:drop(active):not(:disabled):selected, placessidebar row:drop(active):not(:disabled):selected label, placessidebar row:drop(active):not(:disabled):selected image {
-        color: #FFFFFF; }
+        color: #0b0d0f; }
 
 placesview .server-list-button > image {
   transition: 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -2675,7 +2675,7 @@ row:selected button.flat, infobar.info button.flat, infobar.question button.flat
   .primary-toolbar toolbar.selection-mode button:disabled,
   .selection-mode.primary-toolbar button:disabled, .primary-toolbar .selection-mode.inline-toolbar button:disabled, headerbar.selection-mode button:disabled, .primary-toolbar toolbar.selection-mode button:disabled label,
   .selection-mode.primary-toolbar button:disabled label, .primary-toolbar .selection-mode.inline-toolbar button:disabled label, headerbar.selection-mode button:disabled label, row:selected button.flat:disabled, infobar.info button.flat:disabled, infobar.question button.flat:disabled, infobar.warning button.flat:disabled, infobar.error button.flat:disabled, row:selected button.flat:disabled label, infobar.info button.flat:disabled label, infobar.question button.flat:disabled label, infobar.warning button.flat:disabled label, infobar.error button.flat:disabled label {
-    color: rgba(255, 255, 255, 0.4); }
+    color: rgba(11, 13, 15, 0.4); }
 
 row:selected button:hover, infobar.info button:hover, infobar.question button:hover, infobar.warning button:hover, infobar.error button:hover {
   color: #FFFFFF;
@@ -2693,7 +2693,7 @@ row:selected button:disabled, infobar.info button:disabled, infobar.question but
   background-color: rgba(255, 255, 255, 0);
   border-color: rgba(255, 255, 255, 0.4); }
   row:selected button:disabled, infobar.info button:disabled, infobar.question button:disabled, infobar.warning button:disabled, infobar.error button:disabled, row:selected button:disabled label, infobar.info button:disabled label, infobar.question button:disabled label, infobar.warning button:disabled label, infobar.error button:disabled label {
-    color: rgba(255, 255, 255, 0.5); }
+    color: rgba(11, 13, 15, 0.5); }
   .primary-toolbar toolbar.selection-mode button:disabled:checked,
   .selection-mode.primary-toolbar button:disabled:checked, .primary-toolbar .selection-mode.inline-toolbar button:disabled:checked, headerbar.selection-mode button:disabled:checked, .primary-toolbar toolbar.selection-mode button:disabled:active,
   .selection-mode.primary-toolbar button:disabled:active, .primary-toolbar .selection-mode.inline-toolbar button:disabled:active, headerbar.selection-mode button:disabled:active, row:selected button:disabled:active, infobar.info button:disabled:active, infobar.question button:disabled:active, infobar.warning button:disabled:active, infobar.error button:disabled:active, row:selected button:disabled:checked, infobar.info button:disabled:checked, infobar.question button:disabled:checked, infobar.warning button:disabled:checked, infobar.error button:disabled:checked {
@@ -2977,7 +2977,7 @@ textview text selection, iconview:selected, iconview:selected:focus, iconview te
   textview text:selected:focus, .view text selection:focus, .view text selection,
   textview text selection:focus,
   textview text selection, iconview:selected, iconview:selected:focus, iconview text selection:focus, iconview text selection, flowbox flowboxchild:selected, entry selection:focus, entry selection, treeview.view:selected, treeview.view:selected:focus, row:selected {
-    color: #FFFFFF; }
+    color: #0b0d0f; }
     label:disabled selection, row:selected label:disabled, label:disabled:selected, .caja-navigation-window .view .cell:disabled:selected, .caja-navigation-window iconview .cell:disabled:selected, .nemo-window .nemo-inactive-pane .view:disabled:selected:focus, .nemo-window .nemo-inactive-pane iconview:disabled:selected:focus, .nemo-window .nemo-inactive-pane .view:disabled:selected, .nemo-window .nemo-inactive-pane iconview:disabled:selected, .nemo-window .nemo-window-pane widget.entry:disabled:selected, .nautilus-window placessidebar.sidebar list row.sidebar-row:disabled:selected, .nautilus-window placessidebar.sidebar list row.sidebar-row:disabled:active:hover,
     filechooser placessidebar.sidebar list row.sidebar-row.has-open-popup:disabled:selected,
     filechooser placessidebar.sidebar list row.sidebar-row:disabled:selected,
@@ -3091,7 +3091,7 @@ vte-terminal {
     color: rgba(255, 255, 255, 0.87); }
   .nemo-desktop.nemo-canvas-item:selected,
   .nautilus-desktop.nautilus-canvas-item:selected {
-    color: #FFFFFF; }
+    color: #0b0d0f; }
 
 .nautilus-canvas-item.dim-label, label.nautilus-canvas-item.separator,
 .nautilus-list-dim-label {
@@ -3133,7 +3133,7 @@ filechooser placessidebar.sidebar list {
       color: inherit; }
     .nautilus-window placessidebar.sidebar list row.sidebar-row:not(:selected) button.sidebar-button,
     filechooser placessidebar.sidebar list row.sidebar-row:not(:selected) button.sidebar-button {
-      color: rgba(255, 255, 255, 0.87); }
+      color: rgba(11, 13, 15, 0.87); }
       .nautilus-window placessidebar.sidebar list row.sidebar-row:not(:selected) button.sidebar-button:hover,
       filechooser placessidebar.sidebar list row.sidebar-row:not(:selected) button.sidebar-button:hover {
         color: #DBDBDB;
@@ -3167,7 +3167,7 @@ filechooser placessidebar.sidebar list {
       filechooser placessidebar.sidebar list row.sidebar-row:drop(active):not(:disabled):selected,
       filechooser placessidebar.sidebar list row.sidebar-row:drop(active):not(:disabled):selected label,
       filechooser placessidebar.sidebar list row.sidebar-row:drop(active):not(:disabled):selected .sidebar-icon {
-        color: #FFFFFF; }
+        color: #0b0d0f; }
   .nautilus-window placessidebar.sidebar list separator,
   filechooser placessidebar.sidebar list separator {
     background-color: transparent; }
@@ -3299,7 +3299,7 @@ NautilusListView .view, NautilusListView iconview {
   color: rgba(137, 137, 140, 0.935);
   font-size: smaller; }
   .open-document-selector-path-label:selected {
-    color: rgba(255, 255, 255, 0.9); }
+    color: rgba(11, 13, 15, 0.9); }
 
 .gedit-document-panel {
   background-color: #14171a; }
@@ -3317,7 +3317,7 @@ NautilusListView .view, NautilusListView iconview {
       color: #0b0d0f;
       background-color: #d4f53c; }
     .gedit-document-panel row:hover:not(:selected) button:active {
-      color: rgba(255, 255, 255, 0.87); }
+      color: rgba(11, 13, 15, 0.87); }
   .gedit-document-panel row button {
     min-width: 22px;
     min-height: 22px;
@@ -3333,14 +3333,14 @@ NautilusListView .view, NautilusListView iconview {
     .gedit-document-panel row:hover:not(:selected) button:hover {
       color: #ff4d4d; }
     .gedit-document-panel row:hover:not(:selected) button:active {
-      color: rgba(255, 255, 255, 0.87); }
+      color: rgba(11, 13, 15, 0.87); }
   .gedit-document-panel row:hover:selected button:hover {
     color: #ff6666;
     background: none;
     border: none;
     box-shadow: none; }
     .gedit-document-panel row:hover:selected button:hover:active {
-      color: #FFFFFF; }
+      color: #0b0d0f; }
 
 .gedit-document-panel-dragged-row {
   border: 1px solid #0b0d0f;
@@ -3755,7 +3755,7 @@ PantheonTerminalPantheonTerminalWindow.background {
 
 SwitchboardCategoryView .view:selected, SwitchboardCategoryView iconview:selected,
 SwitchboardCategoryView .view:selected:focus {
-  color: rgba(255, 255, 255, 0.87); }
+  color: rgba(11, 13, 15, 0.87); }
 
 .cs-header {
   padding: 6px;
@@ -4168,6 +4168,15 @@ placessidebar.sidebar row:selected, stacksidebar.sidebar row:selected, list.navi
 }
 placessidebar.sidebar row:selected label, placessidebar.sidebar row:selected image,
 stacksidebar.sidebar row:selected label { color: #d4f53c; }
+
+/* Suggested action (Save, OK …): lime with ink, like every other accent */
+button.suggested-action, headerbar button.suggested-action, .primary-toolbar button.suggested-action {
+  color: #0b0d0f; background-color: #d4f53c; background-image: none; border-color: rgba(0, 0, 0, 0.12); text-shadow: none;
+}
+button.suggested-action:hover, headerbar button.suggested-action:hover { color: #0b0d0f; background-color: #ddf75e; background-image: none; }
+button.suggested-action:active, button.suggested-action:checked { color: #0b0d0f; background-color: #c2e02c; background-image: none; }
+button.suggested-action:disabled { color: rgba(11, 13, 15, 0.4); background-color: rgba(212, 245, 60, 0.45); }
+button.suggested-action label { color: inherit; }
 
 /* Tooltips dark like the menus (Mint-Y: accent fill with white text, unreadable on lime) */
 tooltip.background { background-color: rgba(35, 40, 45, 0.97); border: 1px solid rgba(255, 255, 255, 0.1); }

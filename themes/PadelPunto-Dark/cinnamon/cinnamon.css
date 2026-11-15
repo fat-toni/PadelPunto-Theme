@@ -2133,6 +2133,9 @@ On-Screen Keyboard (<= Cinnamon 6.4)
 .appmenu-application-button-selected .appmenu-application-button-description { color: #b8c0c7; }
 #appmenu-search-entry:focus { border-color: #d4f53c; }
 
+/* Selected text in entries: ink on lime */
+.prompt-dialog-password-entry, .run-dialog-entry, #appmenu-search-entry, #menu-search-entry, .popup-menu #notification StEntry { selected-color: #0b0d0f; }
+
 /* Calendar: today in full lime (Mint uses the accent at 40 %, which turns lime olive) */
 .calendar-today, .calendar-today:selected { color: #0b0d0f; background-color: #d4f53c; font-weight: bold; border-radius: 999px; }
 
@@ -2141,6 +2144,11 @@ On-Screen Keyboard (<= Cinnamon 6.4)
 
 /* Top panel semi-transparent with a fine edge */
 .panel-top { background-color: rgba(11, 13, 15, 0.55); border-bottom: 1px solid rgba(255, 255, 255, 0.11); box-shadow: none; }
+
+/* Panel clock of calendar@padelpunto: muted date · lime dot · bold time */
+.pp-clock-date { color: #8b939b; font-weight: normal; font-size: 11pt; }
+.pp-clock-dot { color: #d4f53c; font-size: 6pt; padding: 0 9px; }
+.pp-clock-time { color: #f2f4f5; font-weight: bold; font-size: 11pt; }
 
 /* Workspace switcher (top panel): plain numbers, active = lime pill, empty = muted */
 .panel-top .workspace-switcher { padding: 0 6px; }

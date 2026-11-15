@@ -1,0 +1,15 @@
+[/]
+background-color='#FBFBFC'
+bold-color-same-as-fg=true
+cursor-background-color='#8FB000'
+cursor-colors-set=true
+cursor-foreground-color='#0B0D0F'
+foreground-color='#1C2024'
+highlight-background-color='#D4F53C'
+highlight-colors-set=true
+highlight-foreground-color='#0B0D0F'
+palette=['#1C2024', '#C62828', '#2E7D32', '#9C6E00', '#1F5FBF', '#8E44AD', '#00838F', '#C9CDD1', '#6B737B', '#E53935', '#557000', '#B8860B', '#3D7DD8', '#A35BC6', '#00A3B0', '#F2F4F5']
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=false
+visible-name='Padel Punto Light'

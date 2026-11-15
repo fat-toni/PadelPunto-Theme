@@ -43,13 +43,13 @@ OWN_PLACES = {'menu@cinnamon.org', 'workspace-switcher@cinnamon.org', ACTIVE, CL
               'separator@cinnamon.org', 'spacer@cinnamon.org'}
 
 CLOCK_LABEL = '''
-        // padelpunto: panel clock = muted date · lime dot · bold time
+        // padelpunto: panel clock = muted date · lime dot · bold time (colors: pp-clock-* in the theme)
         if (!this._ppBox) {
             const C = imports.gi.Clutter, S = imports.gi.St;
             this._ppBox = new S.BoxLayout({ y_align: C.ActorAlign.CENTER });
-            this._ppDate = new S.Label({ y_align: C.ActorAlign.CENTER, style: "color: #8b939b; font-weight: normal; font-size: 11pt;" });
-            this._ppDot = new S.Label({ y_align: C.ActorAlign.CENTER, text: "\\u25CF", style: "color: #d4f53c; font-size: 6pt; padding: 0 9px;" });
-            this._ppTime = new S.Label({ y_align: C.ActorAlign.CENTER, style: "color: #f2f4f5; font-weight: bold; font-size: 11pt;" });
+            this._ppDate = new S.Label({ y_align: C.ActorAlign.CENTER, style_class: "pp-clock-date" });
+            this._ppDot = new S.Label({ y_align: C.ActorAlign.CENTER, text: "\\u25CF", style_class: "pp-clock-dot" });
+            this._ppTime = new S.Label({ y_align: C.ActorAlign.CENTER, style_class: "pp-clock-time" });
             this._ppBox.add_child(this._ppDate);
             this._ppBox.add_child(this._ppDot);
             this._ppBox.add_child(this._ppTime);
@@ -107,8 +107,19 @@ def strv_set(items, pid, value):
     return items + [f'{pid}:{value}']
 
 
+def reload_running():
+    """Applets that are already running keep their old code until Cinnamon reloads them."""
+    out = subprocess.run(['gdbus', 'call', '--session', '--dest', 'org.Cinnamon', '--object-path', '/org/Cinnamon',
+                          '--method', 'org.Cinnamon.GetRunningXletUUIDs', 'applet'], capture_output=True, text=True).stdout
+    for uuid in (ACTIVE, CLOCK):
+        if f"'{uuid}'" in out:
+            subprocess.run(['gdbus', 'call', '--session', '--dest', 'org.Cinnamon', '--object-path', '/org/Cinnamon',
+                            '--method', 'org.Cinnamon.ReloadXlet', uuid, 'APPLET'], capture_output=True)
+
+
 def setup():
     clock_ok = install_applets()
+    reload_running()
     s = Gio.Settings.new('org.cinnamon')
 
     panels = [p.split(':') for p in s.get_strv('panels-enabled')]   # id:monitor:position

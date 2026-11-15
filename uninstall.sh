@@ -5,27 +5,30 @@ HERE="$(dirname "$(readlink -f "$0")")"
 DATA="$HOME/.local/share/padelpunto-theme"
 APPLETS="$HOME/.local/share/cinnamon/applets"
 BACKGROUNDS="$HOME/.local/share/backgrounds/padelpunto"
-TERM_UUID="d4f53c0b-0d0f-4a1e-9b2c-5ad31e0b0d0f"
+TERM_UUIDS="d4f53c0b-0d0f-4a1e-9b2c-5ad31e0b0d0f d4f53c0b-0d0f-4a1e-9b2c-5ad31e0bf8f9"   # dark, light
 
 # previous.txt (older versions: vorher.txt)
 for f in "$DATA/previous.txt" "$DATA/vorher.txt"; do
   if [ -f "$f" ]; then
     echo "→ Restoring previous settings"
-    while read -r schema key value; do gsettings set "$schema" "$key" "$value" || true; done < "$f"
+    restore() { if [ "$3" = "@default" ]; then gsettings reset "$1" "$2" || true; else gsettings set "$1" "$2" "$3" || true; fi; }
+    while read -r schema key value; do restore "$schema" "$key" "$value"; done < "$f"
     # Cinnamon writes values back for a panel that is just being removed – set the panel keys once more
     if grep -q '^org.cinnamon panel' "$f"; then
       sleep 1
-      grep '^org.cinnamon panel' "$f" | while read -r schema key value; do gsettings set "$schema" "$key" "$value" || true; done
+      grep '^org.cinnamon panel' "$f" | while read -r schema key value; do restore "$schema" "$key" "$value"; done
     fi
     break
   fi
 done
 
 if gsettings list-schemas 2>/dev/null | grep -qx org.gnome.Terminal.ProfilesList; then
-  LIST=$(gsettings get org.gnome.Terminal.ProfilesList list)
-  NEW=$(echo "$LIST" | sed -e "s/, '$TERM_UUID'//" -e "s/'$TERM_UUID', //")
-  if [ "$NEW" != "$LIST" ]; then gsettings set org.gnome.Terminal.ProfilesList list "$NEW"; fi
-  dconf reset -f "/org/gnome/terminal/legacy/profiles:/:$TERM_UUID/" || true
+  for TERM_UUID in $TERM_UUIDS; do
+    LIST=$(gsettings get org.gnome.Terminal.ProfilesList list)
+    NEW=$(echo "$LIST" | sed -e "s/, '$TERM_UUID'//" -e "s/'$TERM_UUID', //")
+    if [ "$NEW" != "$LIST" ]; then gsettings set org.gnome.Terminal.ProfilesList list "$NEW"; fi
+    dconf reset -f "/org/gnome/terminal/legacy/profiles:/:$TERM_UUID/" || true
+  done
 fi
 
 if compgen -G "$HOME/.config/doublecmd/*.before-padelpunto" >/dev/null || compgen -G "$HOME/.config/doublecmd/*.vor-padelpunto" >/dev/null; then
@@ -73,5 +76,6 @@ if [ -f "$LST" ]; then grep -vxF "$BACKGROUNDS" "$LST" > "$LST.new" || true; mv 
 for a in active-app calendar aktives-programm kalender; do
   rm -rf "$APPLETS/$a@padelpunto" "$HOME/.config/cinnamon/spices/$a@padelpunto"
 done
-rm -rf "$HOME/.themes/PadelPunto-Dark" "$HOME/.local/share/icons/PadelPunto" "$BACKGROUNDS" "$DATA"
+rm -rf "$HOME/.themes/PadelPunto-Dark" "$HOME/.themes/PadelPunto-Light" \
+       "$HOME/.local/share/icons/PadelPunto" "$HOME/.local/share/icons/PadelPunto-Light" "$BACKGROUNDS" "$DATA"
 echo "Removed."

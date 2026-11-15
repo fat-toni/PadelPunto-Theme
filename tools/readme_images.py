@@ -116,7 +116,7 @@ def hero(full_path, wall_file, nemo_im, term_im, out, alpha=170):
 
 card(menu_card(C + "rd-light-menu.png"), os.path.join(DOCS, "start-menu-light.png"), src_xy=(200, 40), wall_file=WALL_LIGHT, alpha=70)
 nemo_l = Image.open(C + "rd-light-nemo.png").convert("RGBA")
-ImageDraw.Draw(nemo_l).rectangle([186, 72, 226, 98], fill=nemo_l.getpixel((224, 80)))     # user name in the path bar
+ImageDraw.Draw(nemo_l).rectangle([186, 70, 226, 95], fill=nemo_l.getpixel((224, 80)))     # user name in the path bar
 card(nemo_l, os.path.join(DOCS, "file-manager-light.png"), src_xy=(1900, 200), wall_file=WALL_LIGHT, alpha=70)
 term_l = Image.open(C + "rd-light-term.png").convert("RGBA")
 card(term_l, os.path.join(DOCS, "terminal-light.png"), src_xy=(2300, 500), wall_file=WALL_LIGHT, alpha=70)

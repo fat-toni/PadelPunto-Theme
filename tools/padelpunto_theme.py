@@ -183,6 +183,10 @@ placessidebar.sidebar row:selected, stacksidebar.sidebar row:selected, list.navi
 placessidebar.sidebar row:selected label, placessidebar.sidebar row:selected image,
 stacksidebar.sidebar row:selected label { color: #d4f53c; }
 
+/* Tooltips dunkel wie die Menüs (Mint-Y: Akzentfläche mit weißer Schrift, auf Lime unlesbar) */
+tooltip.background { background-color: rgba(35, 40, 45, 0.97); border: 1px solid rgba(255, 255, 255, 0.1); }
+tooltip, tooltip * { color: #e6e8ea; }
+
 """ + MAC_PUNKTE + """/* <<< padelpunto */
 """
 
@@ -208,6 +212,9 @@ CIN_EIGEN = """
 
 /* Kalender: heute in vollem Lime (Mint nimmt den Akzent mit 40 %, Lime wird darauf olivgrün) */
 .calendar-today, .calendar-today:selected { color: #0b0d0f; background-color: #d4f53c; font-weight: bold; border-radius: 999px; }
+
+/* Tooltips (Dock, Leiste, Applets) dunkel wie die Menüs statt Lime mit weißer Schrift */
+#Tooltip { background-color: rgba(35, 40, 45, 0.97); color: #e6e8ea; border: 1px solid rgba(255, 255, 255, 0.1); }
 
 /* Obere Leiste halbtransparent mit feiner Kante */
 .panel-top { background-color: rgba(11, 13, 15, 0.55); border-bottom: 1px solid rgba(255, 255, 255, 0.11); box-shadow: none; }

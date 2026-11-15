@@ -3226,6 +3226,10 @@ placessidebar.sidebar row:selected, stacksidebar.sidebar row:selected, list.navi
 placessidebar.sidebar row:selected label, placessidebar.sidebar row:selected image,
 stacksidebar.sidebar row:selected label { color: #d4f53c; }
 
+/* Tooltips dunkel wie die Menüs (Mint-Y: Akzentfläche mit weißer Schrift, auf Lime unlesbar) */
+tooltip.background { background-color: rgba(35, 40, 45, 0.97); border: 1px solid rgba(255, 255, 255, 0.1); }
+tooltip, tooltip * { color: #e6e8ea; }
+
 /* Fensterknöpfe: Mac-Punkte Gelb / Grün / Rot, Symbol erst beim Überfahren */
 headerbar button.titlebutton.minimize, .titlebar button.titlebutton.minimize { min-width: 16px; min-height: 16px; padding: 0; margin: 0 4px; border: none; border-radius: 50%; box-shadow: none; outline: none; background-image: none; background-color: #fdbe04; color: transparent; }
 headerbar button.titlebutton.minimize:hover, .titlebar button.titlebutton.minimize:hover, headerbar button.titlebutton.minimize:hover:backdrop, .titlebar button.titlebutton.minimize:hover:backdrop { background-image: none; background-color: #fdbe04; color: #0b0d0f; }

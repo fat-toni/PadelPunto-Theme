@@ -50,6 +50,19 @@ if [ -f "$ADW" ] && grep -q padelpunto-libadwaita "$ADW"; then
   done
 fi
 
+KV="$HOME/.config/Kvantum"
+if [ -d "$KV/PadelPunto-Dark" ] || [ -d "$KV/PadelPunto-Light" ] || grep -qs '>>> padelpunto-theme' "$HOME/.xsessionrc"; then
+  echo "→ Qt apps: Kvantum theme removed (back to the old look after logging out and in)"
+  rm -rf "$KV/PadelPunto-Dark" "$KV/PadelPunto-Light" "$HOME/.config/environment.d/90-padelpunto-qt.conf"
+  if grep -qs '^theme=PadelPunto-' "$KV/kvantum.kvconfig"; then rm -f "$KV/kvantum.kvconfig"; fi
+  if [ -f "$KV/kvantum.kvconfig.before-padelpunto" ]; then mv "$KV/kvantum.kvconfig.before-padelpunto" "$KV/kvantum.kvconfig"; fi
+  rmdir "$KV" 2>/dev/null || true
+  if [ -f "$HOME/.xsessionrc" ]; then
+    sed -i '/^# >>> padelpunto-theme/,/^# <<< padelpunto-theme/d' "$HOME/.xsessionrc"
+    [ -s "$HOME/.xsessionrc" ] || rm -f "$HOME/.xsessionrc"
+  fi
+fi
+
 FPO="$HOME/.local/share/flatpak/overrides/global"
 # shellcheck disable=SC2088  # Flatpak stores the ~ literally
 if [ -f "$FPO" ] && grep -q '~/.themes:ro' "$FPO"; then
@@ -57,9 +70,12 @@ if [ -f "$FPO" ] && grep -q '~/.themes:ro' "$FPO"; then
   # only drop our entries from filesystems=, other overrides stay
   python3 -I - "$FPO" <<'PY'
 import sys
-p = sys.argv[1]; ours = {"~/.themes:ro", "xdg-data/icons:ro", "xdg-config/gtk-3.0:ro", "xdg-config/gtk-4.0:ro"}
+p = sys.argv[1]; ours = {"~/.themes:ro", "xdg-data/icons:ro", "xdg-config/gtk-3.0:ro", "xdg-config/gtk-4.0:ro",
+                         "xdg-config/Kvantum:ro"}
 out = []
 for line in open(p).read().splitlines():
+    if line == "QT_STYLE_OVERRIDE=kvantum":
+        continue
     if line.startswith("filesystems="):
         rest = [x for x in line[12:].split(";") if x and x not in ours]
         if not rest: continue

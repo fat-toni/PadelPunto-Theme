@@ -14,6 +14,10 @@ Padel Punto Desktop Theme builds on the work of these projects:
   https://github.com/linuxmint/cinnamon
   `--dock` copies the applet of the installed system as `calendar@padelpunto` and only changes
   its panel label. The code is not distributed with this package.
+- **Kvantum** and its themes **KvArcDark / KvArc** by Tsu Jan (package `qt5-style-kvantum-themes`) – GPL-3.0
+  https://github.com/tsujan/Kvantum
+  The Kvantum themes `PadelPunto-Dark` and `PadelPunto-Light` for Qt apps are generated at build time
+  from KvArcDark and KvArc: colors switched to ink & lime, text on lime in ink.
 - **Michroma** (font in the wallpapers) by Vernon Adams – SIL Open Font License 1.1,
   see `extras/wallpapers/OFL-Michroma.txt`.
 - The name and logo **Padel Punto** belong to the Padel Punto project.

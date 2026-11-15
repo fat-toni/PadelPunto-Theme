@@ -1,24 +1,25 @@
 #!/usr/bin/env bash
 # Install the Padel Punto desktop theme (current user only, no sudo needed).
-#   ./install.sh --all           everything (theme, icons, dock, terminal, Double Commander, Flatpak, wallpapers), dark
+#   ./install.sh --all           everything (theme, icons, dock, terminal, Double Commander, Qt apps, Flatpak, wallpapers), dark
 #   ./install.sh --all --light   the same in light
 #   ./install.sh                 only copy themes + icons (or, after an earlier run: update with the same choice)
-# Single parts:  --activate  --dock  --terminal  --doublecmd  --flatpak  --wallpaper
+# Single parts:  --activate  --dock  --terminal  --doublecmd  --qt  --flatpak  --wallpaper
 # Variant:       --dark  --light  (remembered; switch any time:  ./install.sh --light)
 # German names work too:  --alles  --aktivieren  --hintergrund  --dunkel  --hell
 set -euo pipefail
 cd "$(dirname "$(readlink -f "$0")")"
 
-ACTIVATE=0 DOCK=0 TERMINAL=0 DC=0 FP=0 WP=0 VARIANT=""
+ACTIVATE=0 DOCK=0 TERMINAL=0 DC=0 QT=0 FP=0 WP=0 VARIANT=""
 for a in "$@"; do
   case "$a" in
     --activate|--aktivieren) ACTIVATE=1 ;;
     --dock) DOCK=1 ;;
     --terminal) TERMINAL=1 ;;
     --doublecmd) DC=1 ;;
+    --qt) QT=1 ;;
     --flatpak) FP=1 ;;
     --wallpaper|--hintergrund) WP=1 ;;
-    --all|--alles) ACTIVATE=1 DOCK=1 TERMINAL=1 DC=1 FP=1 WP=1 ;;
+    --all|--alles) ACTIVATE=1 DOCK=1 TERMINAL=1 DC=1 QT=1 FP=1 WP=1 ;;
     --light|--hell) VARIANT=Light ;;
     --dark|--dunkel) VARIANT=Dark ;;
     -h|--help|--hilfe) sed -n '2,8p' "$0" | cut -c3-; exit 0 ;;
@@ -38,12 +39,12 @@ touch "$DATA/previous.txt" "$DATA/parts"
 # Choices of earlier runs (DATA/parts): the parts and the variant
 part() { grep -qx "$1" "$DATA/parts"; }
 keep() { part "$1" || echo "$1" >> "$DATA/parts"; }
-if [ $((ACTIVATE + DOCK + TERMINAL + DC + FP + WP)) -eq 0 ] && grep -qv '^variant-' "$DATA/parts"; then
+if [ $((ACTIVATE + DOCK + TERMINAL + DC + QT + FP + WP)) -eq 0 ] && grep -qv '^variant-' "$DATA/parts"; then
   # no parts given after an earlier run (only --light/--dark or nothing) = update with the same choice
   echo "→ Update with your earlier choice: $(grep -v '^variant-' "$DATA/parts" | tr '\n' ' ')"
-  for p in activate dock terminal doublecmd flatpak wallpaper; do
+  for p in activate dock terminal doublecmd qt flatpak wallpaper; do
     if part "$p"; then case $p in activate) ACTIVATE=1 ;; dock) DOCK=1 ;; terminal) TERMINAL=1 ;;
-      doublecmd) DC=1 ;; flatpak) FP=1 ;; wallpaper) WP=1 ;; esac; fi
+      doublecmd) DC=1 ;; qt) QT=1 ;; flatpak) FP=1 ;; wallpaper) WP=1 ;; esac; fi
   done
 fi
 # switched on once = keep it switched on (later runs copy the themes fresh and may change the variant)
@@ -51,7 +52,7 @@ if part activate; then ACTIVATE=1; fi
 if [ -z "$VARIANT" ]; then VARIANT=Dark; if part variant-Light; then VARIANT=Light; fi; fi
 sed -i '/^variant-/d' "$DATA/parts"; echo "variant-$VARIANT" >> "$DATA/parts"
 [ $ACTIVATE = 1 ] && keep activate; [ $DOCK = 1 ] && keep dock; [ $TERMINAL = 1 ] && keep terminal
-[ $DC = 1 ] && keep doublecmd; [ $FP = 1 ] && keep flatpak; [ $WP = 1 ] && keep wallpaper
+[ $DC = 1 ] && keep doublecmd; [ $QT = 1 ] && keep qt; [ $FP = 1 ] && keep flatpak; [ $WP = 1 ] && keep wallpaper
 THEME="PadelPunto-$VARIANT"; ICON_THEME=PadelPunto; TERM_UUID=$TERM_DARK
 if [ "$VARIANT" = Light ]; then ICON_THEME=PadelPunto-Light; TERM_UUID=$TERM_LIGHT; fi
 
@@ -133,12 +134,47 @@ if [ $DC = 1 ]; then
   fi
 fi
 
+QT_NEW=0
+if [ $QT = 1 ]; then
+  # Qt apps (VLC, KeePassXC, OBS …) draw themselves with the Kvantum engine and our Kvantum theme
+  kvantum_ok() { compgen -G "/usr/lib/*/qt5/plugins/styles/libkvantum.so" >/dev/null || [ -f /usr/lib/qt5/plugins/styles/libkvantum.so ]; }
+  if ! kvantum_ok; then
+    echo "! Qt apps need the Kvantum engine, which is not installed."
+    QT_PKGS=(qt5-style-kvantum)
+    if command -v apt-cache >/dev/null && apt-cache show qt6-style-kvantum >/dev/null 2>&1; then QT_PKGS+=(qt6-style-kvantum); fi
+    if command -v apt-get >/dev/null && ask "  Install it now (asks for your password)? [Y/n] "; then
+      sudo apt-get install -y "${QT_PKGS[@]}" || echo "  ! Failed – later:  sudo apt install ${QT_PKGS[*]}"
+    else
+      echo "  Later:  sudo apt install ${QT_PKGS[*]}  and then  ./install.sh"
+    fi
+  fi
+  if kvantum_ok; then
+    echo "→ Qt apps: Kvantum theme PadelPunto-$VARIANT"
+    KV="$HOME/.config/Kvantum"; mkdir -p "$KV"
+    for v in PadelPunto-Dark PadelPunto-Light; do rm -rf "${KV:?}/$v"; cp -a "kvantum/$v" "$KV/"; done
+    if [ -f "$KV/kvantum.kvconfig" ] && ! grep -q '^theme=PadelPunto-' "$KV/kvantum.kvconfig" && [ ! -f "$KV/kvantum.kvconfig.before-padelpunto" ]; then
+      mv "$KV/kvantum.kvconfig" "$KV/kvantum.kvconfig.before-padelpunto"
+    fi
+    printf '[General]\ntheme=PadelPunto-%s\n' "$VARIANT" > "$KV/kvantum.kvconfig"
+    # Qt apps use Kvantum when this is set at login: ~/.xsessionrc (X11 sessions), environment.d (systemd/Wayland)
+    if ! grep -q '>>> padelpunto-theme' "$HOME/.xsessionrc" 2>/dev/null; then
+      printf '%s\n' "# >>> padelpunto-theme: Qt apps in the Padel Punto style (removed by uninstall.sh)" \
+        "export QT_STYLE_OVERRIDE=kvantum" "# <<< padelpunto-theme" >> "$HOME/.xsessionrc"
+    fi
+    mkdir -p "$HOME/.config/environment.d"
+    echo "QT_STYLE_OVERRIDE=kvantum" > "$HOME/.config/environment.d/90-padelpunto-qt.conf"
+    [ "${QT_STYLE_OVERRIDE:-}" = kvantum ] || QT_NEW=1
+  fi
+fi
+
 if [ $FP = 1 ]; then
   if command -v flatpak >/dev/null; then
     # Flatpak apps only see themes, icons and the libadwaita colors with read access to them (applies to all apps)
     echo "→ Flatpak: read access to theme, icons and GTK settings"
     flatpak override --user "--filesystem=~/.themes:ro" --filesystem=xdg-data/icons:ro \
       --filesystem=xdg-config/gtk-3.0:ro --filesystem=xdg-config/gtk-4.0:ro
+    # Qt apps from Flathub use it when the Kvantum extension (org.kde.KStyle.Kvantum) is installed
+    if part qt; then flatpak override --user --filesystem=xdg-config/Kvantum:ro --env=QT_STYLE_OVERRIDE=kvantum; fi
   else
     echo "! Flatpak is not installed – skipped"
   fi
@@ -222,3 +258,4 @@ case "$CURRENT" in "'PadelPunto-Dark'"|"'PadelPunto-Light'")
   gsettings set org.cinnamon.theme name cinnamon; sleep 1; gsettings set org.cinnamon.theme name "${CURRENT//\'/}" ;;
 esac
 echo "Done ($THEME). To undo: ./uninstall.sh"
+if [ $QT_NEW = 1 ]; then echo "! Qt apps (VLC, KeePassXC …) get the new look after you log out and back in once."; fi

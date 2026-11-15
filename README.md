@@ -8,7 +8,7 @@
 
 <p align="center">
   <b>Ink black meets lime.</b> A complete theme for Linux Mint (Cinnamon), dark or light:<br>
-  windows, panels, dock, icons, terminal and wallpapers in the colors of Padel Punto.
+  windows, panels, dock, icons, terminal, Qt apps and wallpapers in the colors of Padel Punto.
 </p>
 
 <p align="center">
@@ -64,6 +64,13 @@
       up to 3840×2160 – and one that spans two screens.
     </td>
   </tr>
+  <tr>
+    <td colspan="2" valign="top">
+      <h3>🧩 Qt apps</h3>
+      Apps built with Qt instead of GTK – VLC, KeePassXC, qBittorrent, OBS and others – get the same look
+      through a Kvantum theme: lime selection, ink or white surfaces, ink text on lime. In dark and light.
+    </td>
+  </tr>
 </table>
 
 <p align="center">
@@ -77,7 +84,7 @@
 </p>
 
 Both variants are always installed. You choose which one is switched on, and you can switch
-at any time with one command – panels, dock, terminal, Double Commander and wallpaper follow:
+at any time with one command – panels, dock, terminal, Double Commander, Qt apps and wallpaper follow:
 
 ```bash
 ./install.sh --light    # switch to light
@@ -96,7 +103,8 @@ for surfaces (selection, switches, today in the calendar); text and lines use a 
 
 > **Requirements:** Linux Mint with Cinnamon (tested with Mint 22.3 and Cinnamon 6.6).
 > Everything goes into your home folder only, no password or `sudo` needed.
-> Only if the Papirus icons are missing, the script offers to install them for you.
+> Only if something is missing – the Papirus icons, or the Kvantum engine for Qt apps –
+> the script offers to install it for you (then it asks for your password once).
 
 **1. Download.** With git:
 
@@ -133,6 +141,7 @@ Instead of `--all` you can pick and combine the parts:
 | `--dock` | set up the top panel (32 px) and dock (76 px) as in the screenshots |
 | `--terminal` | add the terminal profiles “Padel Punto” and “Padel Punto Light” (the matching one becomes the default with `--activate`) |
 | `--doublecmd` | ink & lime for Double Commander (if it is open, the script asks you to close it) |
+| `--qt` | the same look for Qt apps like VLC or KeePassXC (Kvantum theme; installs the Kvantum engine if needed, active after logging out and in) |
 | `--flatpak` | let Flatpak apps read the theme, icons and colors (read-only) |
 | `--wallpaper` | copy the wallpapers (with `--activate`, set one that fits your screen; with two screens one picture spans both) |
 | `--all` | all of the above |
@@ -176,6 +185,7 @@ After installing, everything sits in the usual places in Linux Mint:
 | **Clock & active app** | System Settings → **Applets**: “Calendar (Padel Punto)” and “Active app (Padel Punto)” |
 | **Terminal profile** | Terminal → menu → **Preferences** → profile “Padel Punto” or “Padel Punto Light” |
 | **Double Commander** | recolored directly, see Configuration → Options → Colors |
+| **Qt apps** | app **Kvantum Manager** → *Change/Delete Theme*: `PadelPunto-Dark` or `PadelPunto-Light` |
 
 <details>
 <summary><b>Where the files live</b></summary>
@@ -188,6 +198,7 @@ After installing, everything sits in the usual places in Linux Mint:
 | Applets | `~/.local/share/cinnamon/applets/` (`calendar@padelpunto`, `active-app@padelpunto`) |
 | Wallpapers | `~/.local/share/backgrounds/padelpunto` |
 | Colors for newer GNOME apps | `~/.config/gtk-4.0/gtk.css` (only with `--flatpak` or without Mint's libadwaita) |
+| Qt apps | `~/.config/Kvantum/PadelPunto-Dark`, `PadelPunto-Light` and `kvantum.kvconfig`; `QT_STYLE_OVERRIDE=kvantum` in `~/.xsessionrc` and `~/.config/environment.d/90-padelpunto-qt.conf` |
 | Saved previous settings | `~/.local/share/padelpunto-theme/previous.txt` |
 | Your choice (parts, variant) | `~/.local/share/padelpunto-theme/parts` |
 </details>
@@ -226,6 +237,14 @@ After installing, everything sits in the usual places in Linux Mint:
   <tr>
     <td align="center"><b>Start menu · light</b><br><sub>Soft lime highlight with a deeper lime bar</sub></td>
     <td align="center"><b>Top panel & dock</b><br><sub>Workspaces as numbers, the active one as a lime pill</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/qt-apps.png" alt="Qt app, dark"></td>
+    <td width="50%"><img src="docs/qt-apps-light.png" alt="Qt app, light"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Qt apps</b><br><sub>Kvantum theme: lime selection and pressed buttons with ink text</sub></td>
+    <td align="center"><b>Qt apps · light</b><br><sub>The same on white, focus lines in the deeper lime</sub></td>
   </tr>
 </table>
 
@@ -284,6 +303,19 @@ while it is closed. The script asks you to close it. If you skipped that, close 
 </details>
 
 <details>
+<summary><b>A Qt app still looks the old way</b></summary>
+<br>
+Qt apps pick up the theme when you log in, so log out and back in once after <code>--qt</code>.
+<br><br>
+<b>Qt 6 apps:</b> Linux Mint 22 has the Kvantum engine only for Qt 5 (VLC, KeePassXC and most others).
+Apps built with Qt 6 keep their own look there. On newer systems that offer
+<code>qt6-style-kvantum</code>, the script installs it as well and Qt 6 apps follow too.
+<br><br>
+<b>Flatpak apps:</b> install with <code>--flatpak</code> and add the Kvantum extension that matches
+the app, e.g. <code>flatpak install flathub org.kde.KStyle.Kvantum</code> (Flatpak asks which version).
+</details>
+
+<details>
 <summary><b>I want my old panels back</b></summary>
 <br>
 <code>./uninstall.sh</code> restores panels, applets, theme, icons and wallpaper
@@ -302,7 +334,7 @@ Restores your previous settings and removes all installed files.
 <summary><b>🔧 Build it yourself</b></summary>
 <br>
 
-`themes/` and `icons/` are included ready-built. To rebuild everything:
+`themes/`, `icons/` and `kvantum/` are included ready-built. To rebuild everything:
 
 ```bash
 ./build.sh
@@ -316,9 +348,11 @@ The individual steps live in `tools/`:
 | `papirus_lime_folders.py` | recolors the Papirus folders to lime (the light icon theme links to the same folders) |
 | `panels.py` | sets up top panel and dock, installs the applets “Active app” and “Calendar (Padel Punto)” |
 | `doublecmd_colors.py` | sets the Double Commander colors (`--restore` brings the old ones back) |
+| `kvantum_theme.py` | builds the Kvantum themes for Qt apps from KvArcDark and KvArc: Arc blue → lime, greys → ink, text on lime becomes ink |
 | `readme_images.py` | the images for this page |
 
-Needs Python 3, Pillow and the packages `mint-themes` and `papirus-icon-theme` (preinstalled on Linux Mint).
+Needs Python 3, Pillow and the packages `mint-themes`, `papirus-icon-theme` (preinstalled on Linux Mint)
+and `qt5-style-kvantum-themes`.
 </details>
 
 ## 🎾 Padel Punto

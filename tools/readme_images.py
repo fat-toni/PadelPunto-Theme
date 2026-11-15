@@ -8,6 +8,7 @@ Expects screenshots in ~/.cache:
   rd-panels-full.png          full screen without menu (close-up of top panel and dock)
   rd-light-*.png              the same for the light variant: rd-light-term, rd-light-nemo,
                               rd-light-menu, rd-light-menu-full, rd-light-panels-full
+  rd-qt.png, rd-light-qt.png  a Qt window (widget gallery) with the Kvantum themes
 Private details are painted over: user name in the start menu -> "Padel Punto",
 user name in the Nemo path bar removed.
 """
@@ -121,6 +122,12 @@ card(nemo_l, os.path.join(DOCS, "file-manager-light.png"), src_xy=(1900, 200), w
 term_l = Image.open(C + "rd-light-term.png").convert("RGBA")
 card(term_l, os.path.join(DOCS, "terminal-light.png"), src_xy=(2300, 500), wall_file=WALL_LIGHT, alpha=70)
 hero_l = hero(C + "rd-light-menu-full.png", WALL_LIGHT, nemo_l, term_l, os.path.join(DOCS, "desktop-light.png"), alpha=80)
+
+# --- Qt apps (Kvantum), dark and light
+for f, out, wall, xy, alpha in (("rd-qt.png", "qt-apps.png", WALL, (1700, 250), 150),
+                                ("rd-light-qt.png", "qt-apps-light.png", WALL_LIGHT, (1700, 250), 70)):
+    q = Image.open(C + f).convert("RGB")
+    card(rounded(q, (0, 0, q.width, q.height), 10), os.path.join(DOCS, out), src_xy=xy, wall_file=wall, alpha=alpha)
 
 # --- dark | light: the two hero images, split by a slanted lime edge
 hero_d = Image.open(os.path.join(DOCS, "desktop.png")).convert("RGB")

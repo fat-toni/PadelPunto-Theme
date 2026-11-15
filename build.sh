@@ -1,17 +1,21 @@
 #!/usr/bin/env bash
-# Builds themes/PadelPunto-Dark, themes/PadelPunto-Light, icons/PadelPunto and icons/PadelPunto-Light.
+# Builds themes/PadelPunto-Dark, themes/PadelPunto-Light, icons/PadelPunto, icons/PadelPunto-Light
+# and kvantum/PadelPunto-Dark, kvantum/PadelPunto-Light (Qt apps).
 # Themes: Mint-Y-Dark / Mint-Y (+ window borders from Mint-Y), recolored to ink & lime  (mint-themes, GPL-3.0)
 # Icons:  Papirus-Dark / Papirus, folders recolored to lime                            (papirus-icon-theme, GPL-3.0)
-# Other sources:  MINT_THEMES=/path/to/themes PAPIRUS=/path/to/Papirus ./build.sh
+# Qt:     Kvantum KvArcDark / KvArc, recolored to ink & lime                            (qt5-style-kvantum-themes, GPL-3.0)
+# Other sources:  MINT_THEMES=/path/to/themes PAPIRUS=/path/to/Papirus KVANTUM=/path/to/Kvantum ./build.sh
 set -euo pipefail
 cd "$(dirname "$(readlink -f "$0")")"
 
 THEMES_SRC="${MINT_THEMES:-/usr/share/themes}"
 PAPIRUS="${PAPIRUS:-/usr/share/icons/Papirus}"
-for d in "$THEMES_SRC/Mint-Y-Dark" "$THEMES_SRC/Mint-Y" "$THEMES_SRC/Mint-Y/metacity-1" "$PAPIRUS" "$PAPIRUS-Dark"; do
+KVANTUM="${KVANTUM:-/usr/share/Kvantum}"
+for d in "$THEMES_SRC/Mint-Y-Dark" "$THEMES_SRC/Mint-Y" "$THEMES_SRC/Mint-Y/metacity-1" "$PAPIRUS" "$PAPIRUS-Dark" \
+         "$KVANTUM/KvArcDark" "$KVANTUM/KvArc"; do
   if [ ! -d "$d" ]; then
     echo "Not found: $d"
-    echo "  sudo apt install mint-themes papirus-icon-theme"
+    echo "  sudo apt install mint-themes papirus-icon-theme qt5-style-kvantum-themes"
     exit 1
   fi
 done
@@ -46,4 +50,6 @@ for io, name, comment, inherits in (
         out += [re.search(r"^\[" + re.escape(d) + r"\].*?(?=\n\[|\Z)", src, re.S | re.M).group(0).strip(), ""]
     open(io + "/index.theme", "w").write("\n".join(out))
 EOF
-echo "done: themes/PadelPunto-Dark  themes/PadelPunto-Light  $IO  $IL"
+echo "== Kvantum PadelPunto-Dark + PadelPunto-Light for Qt apps (source: $KVANTUM/KvArcDark, KvArc)"
+for v in Dark Light; do python3 -I tools/kvantum_theme.py "kvantum/PadelPunto-$v" "$KVANTUM" >/dev/null; done
+echo "done: themes/PadelPunto-Dark  themes/PadelPunto-Light  $IO  $IL  kvantum/PadelPunto-Dark  kvantum/PadelPunto-Light"

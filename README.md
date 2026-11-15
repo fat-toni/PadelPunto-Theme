@@ -14,7 +14,7 @@
 <p align="center">
   <img alt="Linux Mint" src="https://img.shields.io/badge/Linux_Mint-22_Cinnamon-d4f53c?style=flat-square&labelColor=0b0d0f&logo=linuxmint&logoColor=d4f53c">
   <img alt="GTK" src="https://img.shields.io/badge/GTK-2_%7C_3_%7C_4-d4f53c?style=flat-square&labelColor=0b0d0f">
-  <img alt="No sudo" src="https://img.shields.io/badge/install-no_sudo-d4f53c?style=flat-square&labelColor=0b0d0f">
+  <img alt="One command" src="https://img.shields.io/badge/install-one_command-d4f53c?style=flat-square&labelColor=0b0d0f">
   <img alt="License" src="https://img.shields.io/badge/license-GPL--3.0-d4f53c?style=flat-square&labelColor=0b0d0f">
   <a href="https://github.com/PadelPunto"><img alt="Padel Punto on GitHub" src="https://img.shields.io/badge/project-Padel_Punto-d4f53c?style=flat-square&labelColor=0b0d0f&logo=github&logoColor=d4f53c"></a>
 </p>
@@ -102,7 +102,7 @@ for surfaces (selection, switches, today in the calendar); text and lines use a 
 ## 🚀 Install
 
 > **Requirements:** Linux Mint with Cinnamon (tested with Mint 22.3 and Cinnamon 6.6).
-> Everything goes into your home folder only, no password or `sudo` needed.
+> The theme goes into your home folder only, no password needed for it.
 > Only if something is missing – the Papirus icons, or the Kvantum engine for Qt apps –
 > the script offers to install it for you (then it asks for your password once).
 

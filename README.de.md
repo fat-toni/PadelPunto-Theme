@@ -14,7 +14,7 @@
 <p align="center">
   <img alt="Linux Mint" src="https://img.shields.io/badge/Linux_Mint-22_Cinnamon-d4f53c?style=flat-square&labelColor=0b0d0f&logo=linuxmint&logoColor=d4f53c">
   <img alt="GTK" src="https://img.shields.io/badge/GTK-2_%7C_3_%7C_4-d4f53c?style=flat-square&labelColor=0b0d0f">
-  <img alt="Ohne sudo" src="https://img.shields.io/badge/Installation-ohne_sudo-d4f53c?style=flat-square&labelColor=0b0d0f">
+  <img alt="Ein Befehl" src="https://img.shields.io/badge/Installation-ein_Befehl-d4f53c?style=flat-square&labelColor=0b0d0f">
   <img alt="Lizenz" src="https://img.shields.io/badge/Lizenz-GPL--3.0-d4f53c?style=flat-square&labelColor=0b0d0f">
   <a href="https://github.com/PadelPunto"><img alt="Padel Punto auf GitHub" src="https://img.shields.io/badge/Projekt-Padel_Punto-d4f53c?style=flat-square&labelColor=0b0d0f&logo=github&logoColor=d4f53c"></a>
 </p>
@@ -102,7 +102,7 @@ für Flächen (Auswahl, Schalter, heute im Kalender); Schrift und Linien bekomme
 ## 🚀 Installieren
 
 > **Voraussetzung:** Linux Mint mit Cinnamon (getestet mit Mint 22.3 und Cinnamon 6.6).
-> Alles landet nur in deinem Benutzerordner, ein Passwort oder `sudo` ist nicht nötig.
+> Das Theme landet nur in deinem Benutzerordner, dafür ist kein Passwort nötig.
 > Nur wenn etwas fehlt – die Papirus-Symbole oder die Kvantum-Engine für Qt-Programme –,
 > bietet das Skript an, es für dich zu installieren (dann fragt es einmal nach deinem Passwort).
 
